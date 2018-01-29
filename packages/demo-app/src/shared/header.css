@@ -1,0 +1,32 @@
+.header {
+    padding: 1em;
+    border-bottom: 4px double  #80676c;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 120px;
+}
+
+.pageTitle {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.mainNavigation {
+    display: flex;
+}
+
+.mainNavigation li {
+    padding-right: 0.3em;
+    margin-right: 0.3em;
+    border-right: 1px solid #1d1d1b;
+}
+
+.mainNavigation li:last-child {
+    margin-right: none;
+    border-right: none;
+}

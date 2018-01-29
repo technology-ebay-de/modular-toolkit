@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './header.css';
+
 function Header({ appTitle, pageTitle }) {
     return (
-        <header>
-            <h1>
-                <a href="./index.html">
-                    <img src="./images/modular-toolkit-logo.svg" alt={appTitle} width="120" />
-                </a>
-            </h1>
-            <h2>{pageTitle}</h2>
+        <header className={styles.header}>
+            <a href="./index.html">
+                <img className={styles.logo} src="./images/modular-toolkit-logo.svg" alt={appTitle} />
+            </a>
+            <h1 className={styles.pageTitle}>{pageTitle}</h1>
             <nav>
-                <ul>
+                <ul className={styles.mainNavigation}>
                     <li>
                         <a href="./about-me.html">About Me</a>
                     </li>
