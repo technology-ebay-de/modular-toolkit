@@ -1,0 +1,11 @@
+{
+  "name": "@react-modular-toolkit/demo-module",
+  "version": "1.0.0",
+  "description": "Demo module for the React Modular Toolkit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Hund <pahund@ebay.com>",
+  "license": "MIT"
+}
