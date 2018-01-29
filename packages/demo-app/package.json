@@ -4,8 +4,8 @@
   "description": "Demo app for the React Modular Toolkit",
   "main": "index.html",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors --config ./webpack.config.js",
-    "build": "webpack --progress --colors --config ./webpack.config.js",
+    "start": "webpack-dev-server",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Patrick Hund <pahund@ebay.com>",
@@ -21,7 +21,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "@react-modular-toolkit/demo-module": "*"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
