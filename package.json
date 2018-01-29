@@ -4,7 +4,15 @@
   "description": "Tools for composing React applications from decoupled modules",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -13,6 +21,13 @@
   "author": "Patrick Hund <pahund@team.mobile.de>",
   "license": "MIT",
   "devDependencies": {
-    "lerna": "^2.8.0"
+    "lerna": "^2.8.0",
+    "eslint": "^4.16.0",
+    "eslint-config-motor-talk": "^5.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.5.0",
+    "eslint-plugin-react": "^7.6.1",
+    "lint-staged": "^6.1.0",
+    "prettier": "^1.10.2"
   }
 }
