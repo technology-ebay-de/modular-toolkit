@@ -1,6 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import configureStore from './configureStore';
+import App from './App';
 
-const title = 'React Modular Toolkit Demo – About Me';
+const store = configureStore();
 
-ReactDOM.render(<div>{title}</div>, document.getElementById('app'));
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('app')
+);
