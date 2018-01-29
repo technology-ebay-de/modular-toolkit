@@ -4,7 +4,9 @@ function Header({ appTitle, pageTitle }) {
     return (
         <header>
             <h1>
-                <a href="./index.html">{appTitle}</a>
+                <a href="./index.html">
+                    <img src="./images/modular-toolkit-logo.svg" alt={appTitle} width="120" />
+                </a>
             </h1>
             <h2>{pageTitle}</h2>
             <nav>
