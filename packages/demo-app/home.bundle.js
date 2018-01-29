@@ -18256,15 +18256,27 @@ var _reactDom = __webpack_require__(17);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _demoModule = __webpack_require__(27);
+
+var _demoModule2 = _interopRequireDefault(_demoModule);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var title = 'React Modular Toolkit Demo – Home';
 
+(0, _demoModule2.default)();
+
 _reactDom2.default.render(_react2.default.createElement(
-    'div',
-    null,
-    title
+  'div',
+  null,
+  title
 ), document.getElementById('app'));
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+module.exports = () => console.log('hello world');
 
 /***/ })
 /******/ ]);

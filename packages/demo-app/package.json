@@ -6,15 +6,16 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "lint-staged"
   },
   "author": "Patrick Hund <pahund@ebay.com>",
   "license": "MIT",
-  "babel": {
-    "presets": [
-      "env",
-      "react",
-      "stage-2"
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
     ]
   },
   "dependencies": {
@@ -30,6 +31,13 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.16.0",
+    "eslint-config-motor-talk": "^5.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.5.0",
+    "eslint-plugin-react": "^7.6.1",
+    "lint-staged": "^6.1.0",
+    "prettier": "^1.10.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   }

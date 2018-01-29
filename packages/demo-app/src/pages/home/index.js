@@ -6,8 +6,4 @@ const title = 'React Modular Toolkit Demo – Home';
 
 hello();
 
-ReactDOM.render(
-    <div>{title}</div>,
-    document.getElementById('app')
-);
-
+ReactDOM.render(<div>{title}</div>, document.getElementById('app'));
