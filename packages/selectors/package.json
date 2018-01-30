@@ -1,0 +1,14 @@
+{
+  "name": "@react-modular-toolkit/selectors",
+  "version": "1.0.0",
+  "description": "Utility functions for connecting selectors for a state object to a global Redux state",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Hund <pahund@ebay.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react-redux": ">=5.0.0 <6.0.0"
+  }
+}

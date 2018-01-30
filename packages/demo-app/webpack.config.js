@@ -1,8 +1,8 @@
 module.exports = {
     entry: {
-        home: './src/pages/home/index.js',
-        'about-me': './src/pages/about-me/index.js',
-        'my-blog': './src/pages/my-blog/index.js'
+        home: ['babel-polyfill', './src/pages/home/index.js'],
+        'about-me': ['babel-polyfill', './src/pages/about-me/index.js'],
+        'my-blog': ['babel-polyfill', './src/pages/my-blog/index.js']
     },
     output: {
         path: __dirname,
@@ -13,11 +13,12 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                include: [/\/src\//, /\/node_modules\/@react-modular-toolkit\//],
                 use: ['babel-loader']
             },
             {
                 test: /\.css$/,
+                include: [/\/src\//, /\/node_modules\/@react-modular-toolkit\//],
                 loader: 'style-loader'
             },
             {
@@ -31,7 +32,8 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['*', '.js', '.js']
+        extensions: ['*', '.js'],
+        symlinks: false
     },
     devServer: {
         contentBase: './'

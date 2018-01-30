@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import hello from '@react-modular-toolkit/demo-module';
 import { Provider } from 'react-redux';
 import configureStore from './configureStore';
 import App from './App';
+import registerSelectors from './registerSelectors';
 
-hello();
 const store = configureStore();
+
+registerSelectors();
 
 ReactDOM.render(
     <Provider store={store}>

@@ -11,11 +11,15 @@
   "author": "Patrick Hund <pahund@ebay.com>",
   "license": "MIT",
   "dependencies": {
+    "@react-modular-toolkit/demo-module": "*",
+    "@react-modular-toolkit/selectors": "*",
+    "babel-polyfill": "^6.26.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
+    "recompose": "^0.26.0",
     "redux": "^3.7.2",
-    "@react-modular-toolkit/demo-module": "*"
+    "redux-saga": "^0.16.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

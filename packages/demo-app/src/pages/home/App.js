@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../../shared/Header';
+import { HackerNews } from '@react-modular-toolkit/demo-module';
 
 function App({ appTitle, pageTitle }) {
     return (
@@ -10,6 +11,7 @@ function App({ appTitle, pageTitle }) {
             <section>
                 <header>
                     <h1>Welcome to the demo app!</h1>
+                    <HackerNews />
                 </header>
             </section>
         </div>
@@ -21,7 +23,7 @@ App.propTypes = {
     pageTitle: PropTypes.string.isRequired
 };
 
-function mapStateToProps({ appTitle, pageTitle }) {
+function mapStateToProps({ page: { appTitle, pageTitle } }) {
     return {
         appTitle,
         pageTitle

@@ -7,5 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Patrick Hund <pahund@ebay.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@react-modular-toolkit/selectors": "^1.0.0"
+  },
+  "peerDependencies": {
+    "isomorphic-fetch": ">=2.2.0 <3.0.0",
+    "prop-types": ">=15.6.0 <16.0.0",
+    "react": ">=16.2.0 <17.0.0",
+    "react-dom": ">=16.2.0 <17.0.0",
+    "react-redux": ">=5.0.0 <6.0.0",
+    "recompose": ">=0.26.0 <1.0.0",
+    "redux": ">=3.7.0 <4.0.0",
+    "redux-saga": ">=0.16.0 <1.0.0"
+  }
 }
