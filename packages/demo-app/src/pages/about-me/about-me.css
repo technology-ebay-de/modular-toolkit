@@ -1,1 +1,23 @@
 @import '../../main.css';
+
+.mainContent {
+    padding: 0 var(--spacing-base);
+}
+
+.mainContent p {
+    margin-bottom: var(--spacing-base);
+}
+
+.portrait {
+    width: 180px;
+    float: left;
+    margin: 0 var(--spacing-base) var(--spacing-base) 0;
+}
+
+.columnWrapper {
+    display: flex;
+}
+
+.columnWrapper > aside {
+    min-width: 20em;
+}

@@ -12,6 +12,9 @@ function Header({ appTitle, pageTitle }) {
             <nav>
                 <ul className={styles.mainNavigation}>
                     <li>
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li>
                         <a href="./about-me.html">About Me</a>
                     </li>
                     <li>
