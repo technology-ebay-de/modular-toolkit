@@ -1,9 +1,18 @@
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import reducer from './reducer';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './rootSaga';
 
 const initialState = {
-    appTitle: 'React Modular Toolkit Demo',
-    pageTitle: 'About Me'
+    page: {
+        appTitle: 'React Modular Toolkit Demo',
+        pageTitle: 'About Me'
+    }
 };
 
-export default () => createStore(reducer, initialState);
+export default () => {
+    const sagaMiddleware = createSagaMiddleware();
+    const store = createStore(reducer, initialState, applyMiddleware(sagaMiddleware));
+    sagaMiddleware.run(rootSaga);
+    return store;
+};

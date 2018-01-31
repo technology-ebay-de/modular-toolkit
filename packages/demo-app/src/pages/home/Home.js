@@ -12,8 +12,8 @@ function Home({ appTitle, pageTitle }) {
             <section>
                 <header>
                     <h1>Welcome to the demo app!</h1>
-                    <HackerNews />
                 </header>
+                <HackerNews />
             </section>
         </div>
     );
