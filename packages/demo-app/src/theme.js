@@ -1,8 +1,12 @@
 module.exports = {
     'color-foreground-primary': '#1d1d1b',
     'color-foreground-secondary': '#80676c',
+    'color-foreground-danger': '#661f2d',
+    'color-foreground-inverted': '#fffff7',
+
     'color-background-primary': '#fffff7',
     'color-background-secondary': '#cdb178',
+    'color-background-danger': '#661f2d',
 
     'spacing-small': '8px',
     'spacing-base': '16px',

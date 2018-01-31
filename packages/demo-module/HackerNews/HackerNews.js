@@ -25,7 +25,11 @@ function HackerNews({ isLoading, hasFailed, topStories }) {
     }
     return (
         <ul className={styles.topStories}>
-            {topStories.map(({ title }, index) => <li key={`topStory${index}`}>{title}</li>)}
+            {topStories.map(({ title, url }, index) => (
+                <li key={`topStory${index}`}>
+                    <a href={url}>{title}</a>
+                </li>
+            ))}
         </ul>
     );
 }

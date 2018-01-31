@@ -1,12 +1,24 @@
 .loading {
-    /* TODO */
+    font-weight: bold;
+    padding: var(--spacing-base);
+    background-color: var(--color-background-secondary);
 }
 
 .error {
-    /* TODO */
+    padding: var(--spacing-base);
+    color: var(--color-foreground-inverted);
+    background-color: var(--color-background-danger);
 }
 
 .topStories {
-    /* TODO */
+    background-color: var(--color-background-secondary);
 }
 
+.topStories li {
+    padding: var(--spacing-small);
+    border-bottom: 1px solid var(--color-foreground-secondary);
+}
+
+.topStories li:last-child {
+    border-bottom: none;
+}
