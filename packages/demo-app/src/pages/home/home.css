@@ -1,1 +1,18 @@
 @import '../../main.css';
+
+.mainContent {
+    padding: 0 var(--spacing-base);
+}
+
+.mainArticle p {
+    margin-bottom: var(--spacing-base);
+}
+
+.header {
+    margin-bottom: var(--spacing-base);
+}
+
+.header h1 {
+    font-weight: bold;
+    font-size: var(--font-size-large);
+}

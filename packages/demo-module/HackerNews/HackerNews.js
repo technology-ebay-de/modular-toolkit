@@ -24,13 +24,18 @@ function HackerNews({ isLoading, hasFailed, topStories }) {
         return <div className={styles.error}>Oops – failed to load top stories from Hacker News</div>;
     }
     return (
-        <ul className={styles.topStories}>
-            {topStories.map(({ title, url }, index) => (
-                <li key={`topStory${index}`}>
-                    <a href={url}>{title}</a>
-                </li>
-            ))}
-        </ul>
+        <article className={styles.hackerNews}>
+            <header>
+                <h1>What's new?</h1>
+            </header>
+            <ul className={styles.topStories}>
+                {topStories.map(({ title, url }, index) => (
+                    <li key={`topStory${index}`}>
+                        <a href={url}>{title}</a>
+                    </li>
+                ))}
+            </ul>
+        </article>
     );
 }
 

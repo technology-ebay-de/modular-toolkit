@@ -1,3 +1,12 @@
+.hackerNews header {
+    padding: var(--spacing-base) var(--spacing-small) var(--spacing-small);
+    background-color: var(--color-background-secondary);
+}
+
+.hackerNews header h1 {
+    font-weight: bold;
+}
+
 .loading {
     font-weight: bold;
     padding: var(--spacing-base);
