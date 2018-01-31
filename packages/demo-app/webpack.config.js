@@ -19,15 +19,18 @@ module.exports = {
             {
                 test: /\.css$/,
                 include: [/\/src\//, /\/node_modules\/@react-modular-toolkit\//],
-                loader: 'style-loader'
-            },
-            {
-                test: /\.css$/,
-                loader: 'css-loader',
-                query: {
-                    modules: true
-                    // localIdentName: '[name]__[local]___[hash:base64:5]'
-                }
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]__[local]___[hash:base64:5]',
+                            importLoaders: 1
+                        }
+                    },
+                    'postcss-loader'
+                ]
             }
         ]
     },

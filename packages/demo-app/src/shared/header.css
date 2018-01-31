@@ -1,7 +1,7 @@
 .header {
-    padding: 1em;
-    border-bottom: 4px double  #80676c;
-    margin-bottom: 1em;
+    padding: var(--spacing-base);
+    border-bottom: 4px double var(--color-foreground-secondary);
+    margin-bottom: var(--spacing-base);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,7 +12,7 @@
 }
 
 .pageTitle {
-    font-size: 1.2em;
+    font-size: var(--font-size-large);
     font-weight: bold;
 }
 
@@ -21,9 +21,9 @@
 }
 
 .mainNavigation li {
-    padding-right: 0.3em;
-    margin-right: 0.3em;
-    border-right: 1px solid #1d1d1b;
+    padding-right: var(--spacing-small);
+    margin-right: var(--spacing-small);
+    border-right: 1px solid var(--color-foreground-primary);
 }
 
 .mainNavigation li:last-child {

@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../../shared/Header';
+import './my-blog.css';
 
-function App({ appTitle, pageTitle }) {
+function MyBlog({ appTitle, pageTitle }) {
     return (
         <div>
             <Header appTitle={appTitle} pageTitle={pageTitle} />
@@ -16,7 +17,7 @@ function App({ appTitle, pageTitle }) {
     );
 }
 
-App.propTypes = {
+MyBlog.propTypes = {
     appTitle: PropTypes.string.isRequired,
     pageTitle: PropTypes.string.isRequired
 };
@@ -28,4 +29,4 @@ function mapStateToProps({ appTitle, pageTitle }) {
     };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(MyBlog);
