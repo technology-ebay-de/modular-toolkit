@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Header from '../../shared/Header';
 import { HackerNews } from '@react-modular-toolkit/demo-module';
 import styles from './home.css';
-console.log('[PH_LOG] styles:', styles); // PH_TODO
 
 function Home({ appTitle, pageTitle }) {
     return (
