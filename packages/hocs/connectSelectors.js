@@ -28,7 +28,7 @@
  */
 
 import { connect } from 'react-redux';
-import makeWorkWithGlobalState from './makeWorkWithGlobalState';
+import { makeWorkWithGlobalState } from '@react-modular-toolkit/selectors';
 
 export default selectorMap => connect(state => mapSelectors(selectorMap, state));
 

@@ -8,6 +8,9 @@
   },
   "author": "Patrick Hund <pahund@ebay.com>",
   "license": "MIT",
+  "dependencies": {
+    "@react-modular-toolkit/selectors": "*"
+  },
   "peerDependencies": {
     "recompose": ">=0.26.0 <1.0.0"
   }
