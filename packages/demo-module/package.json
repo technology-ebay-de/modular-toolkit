@@ -9,7 +9,8 @@
   "author": "Patrick Hund <pahund@ebay.com>",
   "license": "MIT",
   "dependencies": {
-    "@react-modular-toolkit/selectors": "^1.0.0"
+    "@react-modular-toolkit/selectors": "*",
+    "@react-modular-toolkit/hocs": "*"
   },
   "peerDependencies": {
     "isomorphic-fetch": ">=2.2.0 <3.0.0",

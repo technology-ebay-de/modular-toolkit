@@ -1,7 +1,9 @@
-import { compose, setDisplayName } from 'recompose';
+import { compose, setDisplayName, withHandlers } from 'recompose';
 import HackerNews from './HackerNews';
 import { selectHasFailed, selectIsLoading, selectTopStories } from '../selectors';
 import { connectSelectors } from '@react-modular-toolkit/selectors';
+import { bootstrap } from '@react-modular-toolkit/hocs';
+import { handleLoadingTopStories } from '../handlers';
 
 const enhance = compose(
     setDisplayName('HackerNews'),
@@ -9,7 +11,11 @@ const enhance = compose(
         hasFailed: selectHasFailed,
         isLoading: selectIsLoading,
         topStories: selectTopStories
-    })
+    }),
+    withHandlers({
+        handleLoadingTopStories
+    }),
+    bootstrap(({ handleLoadingTopStories: loadTopStories }) => loadTopStories())
 );
 
 export default enhance(HackerNews);

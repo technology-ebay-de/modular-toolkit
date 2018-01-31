@@ -1,0 +1,14 @@
+{
+  "name": "@react-modular-toolkit/hocs",
+  "version": "1.0.0",
+  "description": "Higher order components (HoCs) for connecting modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Hund <pahund@ebay.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "recompose": ">=0.26.0 <1.0.0"
+  }
+}
