@@ -1,6 +1,5 @@
-import { createStore, applyMiddleware } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import reducer from './reducer';
-import { initialState as hackerNewsInitialState } from '@react-modular-toolkit/demo-module';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './rootSaga';
 
@@ -8,9 +7,6 @@ const initialState = {
     page: {
         appTitle: 'React Modular Toolkit Demo',
         pageTitle: 'Home'
-    },
-    modules: {
-        hackerNews: hackerNewsInitialState
     }
 };
 
