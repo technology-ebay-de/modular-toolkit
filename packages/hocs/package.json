@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/hocs",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Higher order components (HoCs) for connecting modules",
   "main": "index.js",
   "scripts": {

@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/demo-app",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Demo app for the React Modular Toolkit",
   "main": "index.html",
   "scripts": {
