@@ -72,6 +72,8 @@
     "react-test-renderer": "^16.2.0",
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
+    "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1",
     "sinon": "^4.3.0",
     "sinon-chai": "^2.14.0",
     "stylelint": "^8.4.0",

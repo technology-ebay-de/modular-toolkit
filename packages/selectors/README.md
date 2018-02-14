@@ -11,9 +11,11 @@ Utility functions to use selectors for decoupled React components with a global 
 Import the various selector utility functions like so:
 
     import { 
+        createModularSelector,
         makeWorkWithGlobalState,
         rebaseSelector,
-        registerSelectorsForUseWithGlobalState
+        registerSelectorsForUseWithGlobalState,
+        selectModular
     } from '@modular-toolkit/selectors';
    
 ## Change Log

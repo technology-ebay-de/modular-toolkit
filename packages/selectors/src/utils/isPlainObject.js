@@ -1,6 +1,6 @@
 /**
  * Little helper function that allows us to differentiate between plain Objects and Arrays.
- * Coppied from lodash
+ * Copied from lodash
  */
 
 /* eslint-disable no-param-reassign */
