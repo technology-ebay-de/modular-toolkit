@@ -1,5 +1,5 @@
 {
-  "name": "@react-modular-toolkit/hocs",
+  "name": "@modular-toolkit/hocs",
   "version": "1.0.0",
   "description": "Higher order components (HoCs) for connecting modules",
   "main": "index.js",

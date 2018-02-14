@@ -1,5 +1,5 @@
 {
-  "name": "@react-modular-toolkit/selectors",
+  "name": "@modular-toolkit/selectors",
   "version": "1.0.0",
   "description": "Utility functions for connecting selectors for a state object to a global Redux state",
   "main": "index.js",

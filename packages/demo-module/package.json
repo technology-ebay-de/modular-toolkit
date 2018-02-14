@@ -1,5 +1,5 @@
 {
-  "name": "@react-modular-toolkit/demo-module",
+  "name": "@modular-toolkit/demo-module",
   "version": "1.0.0",
   "description": "Demo module for the React Modular Toolkit",
   "main": "index.js",
