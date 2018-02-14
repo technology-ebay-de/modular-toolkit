@@ -13,12 +13,12 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                include: [/\/src\//, /\/node_modules\/@react-modular-toolkit\//],
+                include: [/\/src\//, /\/node_modules\/@modular-toolkit\//],
                 use: ['babel-loader']
             },
             {
                 test: /\.css$/,
-                include: [/\/src\//, /\/node_modules\/@react-modular-toolkit\//],
+                include: [/\/src\//, /\/node_modules\/@modular-toolkit\//],
                 use: [
                     'style-loader',
                     {

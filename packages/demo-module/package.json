@@ -13,8 +13,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@react-modular-toolkit/selectors": "*",
-    "@react-modular-toolkit/hocs": "*"
+    "@modular-toolkit/selectors": "*",
+    "@modular-toolkit/hocs": "*"
   },
   "peerDependencies": {
     "isomorphic-fetch": ">=2.2.0 <3.0.0",

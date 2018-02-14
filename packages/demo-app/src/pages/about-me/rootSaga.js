@@ -1,4 +1,4 @@
-import { loadTopStoriesSaga } from '@react-modular-toolkit/demo-module/sagas';
+import { loadTopStoriesSaga } from '@modular-toolkit/demo-module/sagas';
 
 export default function* rootSaga() {
     yield [loadTopStoriesSaga()];

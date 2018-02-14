@@ -1,8 +1,8 @@
 import { compose, setDisplayName, withHandlers } from 'recompose';
 import HackerNews from './HackerNews';
 import { selectHasFailed, selectIsLoading, selectTopStories } from '../selectors';
-import { connectSelectors } from '@react-modular-toolkit/hocs';
-import { bootstrap } from '@react-modular-toolkit/hocs';
+import { connectSelectors } from '@modular-toolkit/hocs';
+import { bootstrap } from '@modular-toolkit/hocs';
 import { handleLoadingTopStories } from '../handlers';
 
 const enhance = compose(

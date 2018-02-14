@@ -1,6 +1,6 @@
-export const LOAD_TOP_STORIES_START = '@react-modular-toolkit/demo-module/LOAD_TOP_STORIES_START';
-export const LOAD_TOP_STORIES_FAILURE = '@react-modular-toolkit/demo-module/LOAD_TOP_STORIES_FAILURE';
-export const LOAD_TOP_STORIES_SUCCESS = '@react-modular-toolkit/demo-module/LOAD_TOP_STORIES_SUCCESS';
+export const LOAD_TOP_STORIES_START = '@toolkit/demo-module/LOAD_TOP_STORIES_START';
+export const LOAD_TOP_STORIES_FAILURE = '@modular-toolkit/demo-module/LOAD_TOP_STORIES_FAILURE';
+export const LOAD_TOP_STORIES_SUCCESS = '@modular-toolkit/demo-module/LOAD_TOP_STORIES_SUCCESS';
 
 export const loadTopStoriesAction = {
     start() {

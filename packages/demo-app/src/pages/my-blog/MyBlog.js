@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../../shared/Header';
-import { HackerNews } from '@react-modular-toolkit/demo-module';
+import { HackerNews } from '@modular-toolkit/demo-module';
 import './my-blog.css';
 
 function MyBlog({ appTitle, pageTitle }) {
