@@ -1,3 +1,3 @@
-export { default as makeWorkWithGlobalState } from './makeWorkWithGlobalState';
-export { default as rebaseSelector } from './rebaseSelector';
-export { default as registerSelectorsForUseWithGlobalState } from './registerSelectorsForUseWithGlobalState';
+export { default as makeWorkWithGlobalState } from './src/makeWorkWithGlobalState';
+export { default as rebaseSelector } from './src/rebaseSelector';
+export { default as registerSelectorsForUseWithGlobalState } from './src/registerSelectorsForUseWithGlobalState';

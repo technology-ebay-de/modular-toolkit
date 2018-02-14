@@ -10,5 +10,24 @@
     "prettier/prettier": "error"
   },
   "parser": "babel-eslint",
-  "plugins": ["prettier"]
+  "plugins": ["prettier"],
+  "overrides": [
+    // Special settings for jest tests
+    {
+      "files": [ "packages/**/*.test.js" ],
+      "rules": {
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/valid-expect": "error",
+        "no-shadow": 0,
+        "no-unused-expressions": 0
+      },
+      "env": {
+        "jest/globals": true
+      },
+      "plugins": [
+        "jest"
+      ]
+    }
+  ]
 }

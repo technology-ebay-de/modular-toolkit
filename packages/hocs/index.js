@@ -1,2 +1,2 @@
-export { default as connectSelectors } from './connectSelectors';
-export { default as bootstrap } from './bootstrap';
+export { default as connectSelectors } from './src/connectSelectors';
+export { default as bootstrap } from './src/bootstrap';

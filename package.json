@@ -4,14 +4,27 @@
   "description": "Tools for composing React applications from decoupled modules",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "lint-staged"
+    "test": "jest",
+    "precommit": "lint-staged",
+    "postinstall": "lerna bootstrap",
+    "publish": "lerna publish --registry https://nexus.corp.mobile.de/nexus/content/repositories/npm-internal/ ${@:1}",
+    "publish-beta": "lerna publish --npm-tag=beta --cd-version=prerelease --preid=beta --registry https://nexus.corp.mobile.de/nexus/content/repositories/npm-internal/ ${@:1}",
+    "publish-beta-patch": "lerna publish --npm-tag=beta --cd-version=prepatch --preid=beta --registry https://nexus.corp.mobile.de/nexus/content/repositories/npm-internal/ ${@:1}",
+    "publish-beta-minor": "lerna publish --npm-tag=beta --cd-version=preminor --preid=beta --registry https://nexus.corp.mobile.de/nexus/content/repositories/npm-internal/ ${@:1}",
+    "publish-beta-major": "lerna publish --npm-tag=beta --cd-version=premajor --preid=beta --registry https://nexus.corp.mobile.de/nexus/content/repositories/npm-internal/ ${@:1}"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/setupJest.js",
+    "transformIgnorePatterns": [
+      "<rootDir>.*(node_modules)(?!.*@mt-.*).*$"
+    ]
   },
   "lint-staged": {
     "*.js": [
       "prettier --write",
       "eslint --fix",
-      "git add"
+      "git add",
+      "jest --bail --findRelatedTests"
     ],
     "*.css": [
       "stylelint --fix",
@@ -30,15 +43,37 @@
   "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^8.2.1",
+    "babel-jest": "^22.2.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-enzyme": "^1.0.0-beta.0",
+    "chai-string": "^1.4.0",
+    "cheerio": "^1.0.0-rc.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1",
     "eslint": "^4.16.0",
     "eslint-config-motor-talk": "^5.0.0",
     "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-jest": "^21.12.1",
     "eslint-plugin-prettier": "^2.5.0",
     "eslint-plugin-react": "^7.6.1",
     "husky": "^0.14.3",
+    "jest": "^22.2.2",
     "lerna": "^2.8.0",
     "lint-staged": "^6.1.0",
     "prettier": "^1.10.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-test-renderer": "^16.2.0",
+    "recompose": "^0.26.0",
+    "redux": "^3.7.2",
+    "sinon": "^4.3.0",
+    "sinon-chai": "^2.14.0",
     "stylelint": "^8.4.0",
     "stylelint-config-motor-talk": "^1.0.1"
   }
