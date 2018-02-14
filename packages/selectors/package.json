@@ -7,6 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Patrick Hund <pahund@ebay.com>",
+  "contributors": [
+    "Ninja Maaß <jmaass@team.mobile.de>",
+    "Daniel Schäfer <danschaefer@team.mobile.de>"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "react-redux": ">=5.0.0 <6.0.0"
