@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When I enhance a component with the "provideContext" enhancer the props of the component contain a "testContext" object with the context values and a subscribe function 1`] = `
+Object {
+  "data": Object {
+    "test1": "existingPropValue",
+  },
+  "subscribe": [Function],
+}
+`;
