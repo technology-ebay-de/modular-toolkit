@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/demo-module",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "description": "Demo module for the React Modular Toolkit",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@modular-toolkit/hocs": "^1.0.0-beta.4",
-    "@modular-toolkit/selectors": "^1.0.0-beta.2"
+    "@modular-toolkit/hocs": "^1.0.0-beta.5",
+    "@modular-toolkit/selectors": "^1.0.0-beta.3"
   },
   "peerDependencies": {
     "isomorphic-fetch": ">=2.2.0 <3.0.0",
