@@ -51,10 +51,11 @@ To test your changes, you can publish a beta version:
     
 * According to your choice, run one of these commands:
 
-
-    npm run publish-beta-patch
-    npm run publish-beta-minor
-    npm run publish-beta-major
+```
+npm run publish-beta-patch
+npm run publish-beta-minor
+npm run publish-beta-major
+```
 
 This will publish new beta versions of the npm packages you have changed for your release to our internal npm
 registry with corresponding version numbers, example:
