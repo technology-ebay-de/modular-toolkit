@@ -48,7 +48,6 @@ To test your changes, you can publish a beta version:
     * _patch_ – small, backwards compatible contribution, typically a bugfix
     * _minor_ – new feature, backwards compatible
     * _major_ – breaking changes
-    
 * According to your choice, run one of these commands:
 
 ```
@@ -99,20 +98,19 @@ you probably dont' want your 2.0.0-beta.1 version to become 3.0.0, or 2.1.0, or 
 So you basically want to republish your beta version as final version, with the same version number, minus the “beta” suffix.
 
 You have to do a bit of trickery to get [Lerna](https://lernajs.io) to do this. You have to use the
-[--forcePublish](https://github.com/lerna/lerna#--force-publish-packages) command line flag to release the same code 
+[--forcePublish](https://github.com/lerna/lerna#--force-publish-packages) command line flag to release the same code
 with a different version.
 
 So if, for example, you've been working on a new version of the package `mock-store` and have previously published
 version **2.0.0-beta.1** and now want to publish the final version **2.0.0**, the corresponding command would be:
 
     npm run publish -- --force-publish=@modular-toolkit/selectors
-    
+
 You can also use an asterisk to publish new versions of all packages, but be warned, this only makes sense if you
 have actually changed them all:
 
     npm run publish -- --force-publish=*
-    
+
 To finalize multiple, but not all packages, specify them separated by commas:
 
     npm run publish -- --force-publish=@modular-toolkit/selectors,@modular-toolkit/hocs
-
