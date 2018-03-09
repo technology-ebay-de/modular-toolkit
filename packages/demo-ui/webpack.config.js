@@ -2,7 +2,8 @@ module.exports = {
     entry: './index-esnext.js',
     output: {
         path: __dirname,
-        filename: 'index.js'
+        filename: 'index.js',
+        libraryTarget: 'commonjs2'
     },
     externals: {
         'prop-types': {
