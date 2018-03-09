@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:technology-ebay-de/modular-toolkit.git"
+    "url": "https://github.com/technology-ebay-de/modular-toolkit.git"
   },
   "author": "Patrick Hund <pahund@team.mobile.de>",
   "contributors": [
