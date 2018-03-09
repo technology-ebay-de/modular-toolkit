@@ -1,0 +1,10 @@
+.demo-ui-header {
+    color: #1a6091;
+    font-weight: 900;
+    font-size: 1.2em;
+    padding: 18px 8px 8px 12px;
+}
+
+.demo-ui-header h1 {
+    font-weight: bold;
+}

@@ -24,16 +24,19 @@
     ]
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "eslint --fix",
-      "git add",
-      "jest --bail --findRelatedTests"
-    ],
-    "*.css": [
-      "stylelint --fix",
-      "git add"
-    ]
+    "linters": {
+      "*.js": [
+        "prettier --write",
+        "eslint --fix",
+        "git add",
+        "jest --bail --findRelatedTests"
+      ],
+      "*.css": [
+        "stylelint --fix",
+        "git add"
+      ]
+    },
+    "ignore": ["packages/demo-ui/index.js"]
   },
   "repository": {
     "type": "git",

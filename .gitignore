@@ -1,3 +1,5 @@
+**/.cache
+
 # IntelliJ IDEA
 .idea
 *.iml

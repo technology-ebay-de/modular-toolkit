@@ -1,0 +1,9 @@
+.demo-ui-list-item {
+    padding: 8px 8px 8px 12px;
+    border-bottom: 1px solid #dbd5c5;
+}
+
+.demo-ui-list-item:last-child {
+    border-bottom: none;
+    padding-bottom: 16px;
+}
