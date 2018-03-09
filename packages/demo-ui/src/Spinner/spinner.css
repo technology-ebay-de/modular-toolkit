@@ -15,14 +15,14 @@
     position: absolute;
     top: 0;
     left: 0;
-    animation: sk-bounce 2s infinite ease-in-out;
+    animation: demo-ui-bounce 2s infinite ease-in-out;
 }
 
 .demo-ui-double-bounce2 {
     animation-delay: -1s;
 }
 
-@keyframes demo-ui-sk-bounce {
+@keyframes demo-ui-bounce {
     0%,
     100% {
         transform: scale(0);
