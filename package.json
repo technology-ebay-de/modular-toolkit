@@ -13,6 +13,9 @@
     "publish-beta-minor": "lerna publish --npm-tag=beta --cd-version=preminor --preid=beta ${@:1}",
     "publish-beta-major": "lerna publish --npm-tag=beta --cd-version=premajor --preid=beta ${@:1}"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/setupJest.js",
     "transformIgnorePatterns": [
