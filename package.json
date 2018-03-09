@@ -7,11 +7,11 @@
     "test": "jest",
     "precommit": "lint-staged",
     "postinstall": "lerna bootstrap",
-    "publish": "lerna publish --registry https://nexus.corp.mobile.de/nexus/content/repositories/npm-internal/ ${@:1}",
-    "publish-beta": "lerna publish --npm-tag=beta --cd-version=prerelease --preid=beta --registry https://nexus.corp.mobile.de/nexus/content/repositories/npm-internal/ ${@:1}",
-    "publish-beta-patch": "lerna publish --npm-tag=beta --cd-version=prepatch --preid=beta --registry https://nexus.corp.mobile.de/nexus/content/repositories/npm-internal/ ${@:1}",
-    "publish-beta-minor": "lerna publish --npm-tag=beta --cd-version=preminor --preid=beta --registry https://nexus.corp.mobile.de/nexus/content/repositories/npm-internal/ ${@:1}",
-    "publish-beta-major": "lerna publish --npm-tag=beta --cd-version=premajor --preid=beta --registry https://nexus.corp.mobile.de/nexus/content/repositories/npm-internal/ ${@:1}"
+    "publish": "lerna publish ${@:1}",
+    "publish-beta": "lerna publish --npm-tag=beta --cd-version=prerelease --preid=beta ${@:1}",
+    "publish-beta-patch": "lerna publish --npm-tag=beta --cd-version=prepatch --preid=beta ${@:1}",
+    "publish-beta-minor": "lerna publish --npm-tag=beta --cd-version=preminor --preid=beta ${@:1}",
+    "publish-beta-major": "lerna publish --npm-tag=beta --cd-version=premajor --preid=beta ${@:1}"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/setupJest.js",
@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.corp.ebay.com:MT/modular-toolkit.git"
+    "url": "git@github.com:technology-ebay-de/modular-toolkit.git"
   },
   "author": "Patrick Hund <pahund@team.mobile.de>",
   "contributors": [

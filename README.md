@@ -14,22 +14,6 @@ There is also a demo application that shows how to use the toolkit:
 
 For tipps on how to maintain this repository, see the [contribution guidelines](CONTRIBUTING.md).
 
-## Code Ownership
-
-This code was brought to you by **Team GT** of mobile.de's product and technology  department.
-
-* Jakob Gehring, product owner
-* [Christoph Springer](https://github.corp.ebay.com/chrispringer), team lead
-* [Patrick Hund](https://github.corp.ebay.com/pahund), software engineer (frontend)
-* [Ninja Maaß](https://github.corp.ebay.com/jmaass), software engineer (frontend)
-* [Eike Schulte-Kersmecke](https://github.corp.ebay.com/eschultekersmeck), software engineer (backend)
-* [Anja Kunkel](https://github.corp.ebay.com/ankunkel), software engineer (backend)
-* [Mike Krüger](https://github.corp.ebay.com/mikkrueger), quality assurance engineer
-
-### Contact the Team
-
-* Slack: [#mob-team-gt](https://ebayclassifiedsgroup.slack.com/messages/mob-team-gt/)
-
 ## License
 
 [MIT licensed](LICENSE)
