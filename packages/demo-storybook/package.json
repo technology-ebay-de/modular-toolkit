@@ -1,6 +1,6 @@
 {
   "name": "demo-storybook",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Storybook for demo user interface components",
   "main": "index.js",
   "scripts": {
