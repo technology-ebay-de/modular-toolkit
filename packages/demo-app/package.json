@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/demo-app",
-  "version": "1.0.2",
+  "version": "2.0.0-beta.0",
   "description": "Demo app for the React Modular Toolkit",
   "main": "index.html",
   "scripts": {
@@ -19,8 +19,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@modular-toolkit/demo-module": "^1.0.2",
-    "@modular-toolkit/selectors": "^1.0.2",
+    "@modular-toolkit/demo-module": "^2.0.0-beta.0",
+    "@modular-toolkit/selectors": "^2.0.0-beta.0",
     "babel-polyfill": "^6.26.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
