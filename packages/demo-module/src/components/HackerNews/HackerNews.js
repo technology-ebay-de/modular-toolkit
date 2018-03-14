@@ -2,8 +2,7 @@ import { Header, Footer, Button, List, ListItem, Box } from '@modular-toolkit/de
 import PropTypes from 'prop-types';
 import React from 'react';
 
-function HackerNews() {
-    const { topStories, handleLoadingTopStories } = this.props;
+function HackerNews({ topStories, handleLoadingTopStories }) {
     return (
         <Box>
             <Header title="What's new?" />

@@ -1,5 +1,5 @@
-import selectTopStories from './selectTopStories';
+import selectTopStories2 from './selectTopStories';
 
 export { default as selectTopStories } from './selectTopStories';
 
-export default { selectTopStories };
+export default { selectTopStories: selectTopStories2 };

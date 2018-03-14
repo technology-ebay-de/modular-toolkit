@@ -1,11 +1,24 @@
 {
-  "presets": ["env", "react"],
+  "presets": [
+    "env",
+    "react"
+  ],
   "plugins": [
-    "transform-object-rest-spread"
+    "transform-object-rest-spread",
+    [
+      "transform-runtime",
+      {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true
+      }
+    ]
   ],
   "env": {
     "production": {
-      "plugins": ["transform-react-remove-prop-types"]
+      "plugins": [
+        "transform-react-remove-prop-types"
+      ]
     }
   }
 }

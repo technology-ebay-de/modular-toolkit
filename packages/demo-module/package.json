@@ -20,7 +20,8 @@
   "license": "MIT",
   "dependencies": {
     "@modular-toolkit/demo-ui": "^1.0.0",
-    "@modular-toolkit/hocs": "^2.0.0-beta.0"
+    "@modular-toolkit/hocs": "^2.0.0-beta.0",
+    "babel-runtime": "^6.26.0"
   },
   "peerDependencies": {
     "react": ">=16.2.0 <17.0.0",
@@ -32,6 +33,7 @@
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-object-rest-spread": "~6.26.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.10",
