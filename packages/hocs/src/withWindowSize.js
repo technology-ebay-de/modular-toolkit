@@ -1,5 +1,5 @@
 import { compose, withState } from 'recompose';
-import { callHandlerOnResize, omitProps } from '../index';
+import { callHandlerOnResize, omitProps } from '../index-esnext';
 
 export default (
     options = {
