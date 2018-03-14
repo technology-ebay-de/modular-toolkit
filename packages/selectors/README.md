@@ -6,6 +6,11 @@ Utility functions to use selectors for decoupled React components with a global 
 
     npm install --save @modular-toolkit/selectors
 
+**Note:** by default, the npm package exposes ES5-compatible code (transpiled through Babel).
+
+If you want to use the untranspiled code (highly recommended), us the *esnext* version, which is
+included in the same npm package ([more info here](http://2ality.com/2017/06/pkg-esnext.html)).
+
 ## API
 
 ### [createModularSelector](src/createModularSelector.js)

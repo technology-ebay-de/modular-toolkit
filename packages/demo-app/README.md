@@ -14,7 +14,7 @@ After installing, start the demo app with:
 
     npm start
     
-Access the web app in your favorite browser with this URL: [http://localhost:8080/](http://localhost:8080/).
+Access the web app in your favorite browser with this URL: [http://localhost:3000/](http://localhost:3000/).
    
 ## Change Log
 
