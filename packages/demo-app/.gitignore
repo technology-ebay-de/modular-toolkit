@@ -1,0 +1,13 @@
+**/.cache
+
+# IntelliJ IDEA
+.idea
+*.iml
+
+# Logs
+npm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules/
+

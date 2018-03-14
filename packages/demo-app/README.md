@@ -2,7 +2,7 @@
 
 A small web application that demonstrates how to use the modular toolkit to integrate a demo module.
 
-![demo architecture schema](images/modular-toolkit-demo-architecture.png "demo architecture schema")
+![screenshot](screenshot.png "screenshot of the demo app")
 
 ## Installation
 
