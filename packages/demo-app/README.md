@@ -2,7 +2,7 @@
 
 A small web application that demonstrates how to use the modular toolkit to integrate a demo module.
 
-![demo architecture schema](images/modular-toolkit-demo-architecture.png "demo architecture schema")
+![screenshot](screenshot.png "screenshot of the demo app")
 
 ## Installation
 
@@ -14,7 +14,7 @@ After installing, start the demo app with:
 
     npm start
     
-Access the web app in your favorite browser with this URL: [http://localhost:8080/](http://localhost:8080/).
+Access the web app in your favorite browser with this URL: [http://localhost:3000/](http://localhost:3000/).
    
 ## Change Log
 

@@ -1,9 +1,11 @@
 {
   "name": "@modular-toolkit/selectors",
-  "version": "1.0.2",
+  "version": "2.0.0-beta.0",
   "description": "Utility functions for connecting selectors for a state object to a global Redux state",
+  "esnext": "index-esnext.js",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "publishConfig": {
@@ -17,8 +19,14 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "react-redux": ">=5.0.0 <6.0.0",
     "redux-saga": ">=0.15.0 <1.0.0",
     "reselect": ">=3.0.0 <4.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.10"
   }
 }

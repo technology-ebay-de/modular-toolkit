@@ -1,0 +1,15 @@
+.page-header {
+    background-color: #268bd2;
+    color: #fdf6e3;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, .3);
+    padding: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page-header h1 {
+    font-size: 1.5em;
+}

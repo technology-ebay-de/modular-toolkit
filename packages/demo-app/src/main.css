@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900');
+
+/* ------------- */
+
 /* -----
    Reset
    -----
@@ -144,13 +148,14 @@ table {
 */
 
 body {
-    font-family: var(--font-primary);
-    color: var(--color-foreground-primary);
-    background-color: var(--color-background-primary);
+    font-family: 'Lato', sans-serif;
+    color: #1d1d1b;
+    background-color: #78b9e6;
+    padding: 8px;
 }
 
 a,
 a:visited,
 a:active {
-    color: var(--color-foreground-secondary);
+    color: #d33682;
 }

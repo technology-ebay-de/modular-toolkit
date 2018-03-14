@@ -36,7 +36,12 @@
         "git add"
       ]
     },
-    "ignore": ["packages/demo-ui/index.js"]
+    "ignore": [
+      "packages/demo-ui/index.js",
+      "packages/demo-module/index.js",
+      "packages/hocs/index.js",
+      "packages/selectors/index.js"
+    ]
   },
   "repository": {
     "type": "git",
