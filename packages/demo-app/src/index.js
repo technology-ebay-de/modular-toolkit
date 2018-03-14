@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { PageHeader } from './components';
 import configureStore from './configureStore';
-import { HackerNews } from './hacker-news';
+import { HackerNews } from '@modular-toolkit/demo-module';
 import './main.css';
 import registerSelectors from './registerSelectors';
 
