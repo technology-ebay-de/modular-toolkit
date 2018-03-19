@@ -2,7 +2,7 @@
 
 ## 2.1.0 / 19 Mar 2018
 
-* Removed mock to fix test issues
+* Maintenance release
 
 ## 2.0.0 / 14 Mar 2018
 
