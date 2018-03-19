@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0 / 19 Mar 2018
+
+* Removed mock to fix test issues
+
 ## 2.0.0 / 14 Mar 2018
 
 * JS code now ES5 compatible (transpiled through Babel)
