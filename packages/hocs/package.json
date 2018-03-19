@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/hocs",
-  "version": "2.1.0-beta.0",
+  "version": "2.1.0-beta.1",
   "description": "Higher order components (HoCs) for connecting modules",
   "esnext": "index-esnext.js",
   "main": "index.js",
