@@ -4,7 +4,9 @@ jest.mock('react-redux', () => ({
     connect: jest.fn(arg => arg)
 }));
 
-jest.mock('@modular-toolkit/selectors/src/makeWorkWithGlobalState', () => arg => arg);
+jest.mock('@modular-toolkit/selectors', () => ({
+    makeWorkWithGlobalState: arg => arg
+}));
 
 describe('When I call the connectSelectors function with an object', () => {
     let mapStateToProps;
