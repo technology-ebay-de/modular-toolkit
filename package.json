@@ -54,7 +54,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@mt-testutils/mount-hoc": "^1.0.1",
+    "@mt-testutils/mount-hoc": "^1.0.6",
     "babel-eslint": "^8.2.1",
     "babel-jest": "^22.2.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
