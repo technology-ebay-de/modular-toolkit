@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { compose, getContext, lifecycle, withPropsOnChange } from 'recompose';
-import omitProps from './omitProps';
 
 export default (contextName, contextPropTypes) =>
     compose(
@@ -19,6 +18,5 @@ export default (contextName, contextPropTypes) =>
                 this.unsubscribeFromSlidableContext();
             }
         }),
-        withPropsOnChange([contextName], props => ({ ...props[contextName].data })),
-        omitProps([contextName])
+        withPropsOnChange([contextName], props => ({ ...props[contextName].data }))
     );

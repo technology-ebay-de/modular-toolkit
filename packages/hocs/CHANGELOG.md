@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0 / 5 Apr 2018
+
+* Drop `omitProps`. See `@hocs/omit-props` and such if you still need it.
+
 ## 2.1.0 / 19 Mar 2018
 
 * Maintenance release

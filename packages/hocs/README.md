@@ -77,18 +77,7 @@ It also works with nested states props:
 
 This will create a prop `car` with the properties `color` and `ownerName`.
 
-### [omitProps](src/omitProps.js)
-
-[Recompose](https://github.com/acdlite/recompose) enhancer that removes props.
-This helps minimizing property pollution.
-
-Example:
-
-    import { omitProps } from '@modular-toolkit/hocs';
-    omitProps(['thisPropWillNotExistAnymore']);
-
 ### [onLocationChanged](src/onLocationChanged.js)
-
 
 [Recompose](https://github.com/acdlite/recompose) helper function that calls a callback whenever the location pathname or location search changes.
 

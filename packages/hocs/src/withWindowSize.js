@@ -1,5 +1,5 @@
 import { compose, withState } from 'recompose';
-import { callHandlerOnResize, omitProps } from '../index-esnext';
+import { callHandlerOnResize } from '../index-esnext';
 
 export default (
     options = {
@@ -8,6 +8,5 @@ export default (
 ) =>
     compose(
         withState('windowSize', 'setWindowSize', { width: 0, height: 0 }),
-        callHandlerOnResize('setWindowSize', options),
-        omitProps(['setWindowSize'])
+        callHandlerOnResize('setWindowSize', options)
     );
