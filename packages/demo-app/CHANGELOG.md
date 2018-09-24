@@ -2,7 +2,7 @@
 
 ## 3.1.0 / 24 Sep 2018
 
-* Dependency update to fix security issues
+* Dependency update to fix some security issues
 
 ## 2.0.0 / 14 Mar 2018
 

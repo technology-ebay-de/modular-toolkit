@@ -6,7 +6,7 @@
   future React versions
 * `onLocationChanged` now accepts an optional boolean flag as second parameter; defaults is `false`, if set to `true``
   the callback is invoded on initial rendering of the component in addition to when the location changes
-* Dependency update to fix security issues
+* Dependency update to fix some security issues
 
 ## 3.0.0 / 5 Apr 2018
 
