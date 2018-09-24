@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.1.0 / 24 Sep 2018
+
+* `onLocationChanged` now uses `componentDidUpdate` instead of `componentWillReceiveProps` to ensure compatibility with 
+  future React versions
+* `onLocationChanged` now accepts an optional boolean flag as second parameter; defaults is `false`, if set to `true``
+  the callback is invoded on initial rendering of the component in addition to when the location changes
+
 ## 3.0.0 / 5 Apr 2018
 
 * Drop `omitProps`. See `@hocs/omit-props` and such if you still need it.
