@@ -1,16 +1,25 @@
 import { lifecycle } from 'recompose';
 
-export default callback =>
-    lifecycle({
-        componentWillReceiveProps(nextProps) {
-            const { location } = this.props;
-            const { location: nextLocation } = nextProps;
-            const locationHasChanged =
-                !location ||
-                `${nextLocation.pathname}${nextLocation.search}` !== `${location.pathname}${location.search}`;
+function locationHasChanged(
+    { location: { pathname: prevPathname, search: prevSearch } },
+    { location: { pathname: currPathname, search: currSearch } }
+) {
+    return `${prevPathname}${prevSearch}` !== `${currPathname}${currSearch}`;
+}
 
-            if (locationHasChanged) {
-                callback(nextProps);
+export default (callback, includeInitialRender = false) => {
+    let isInitialRender = true;
+    return lifecycle({
+        componentDidMount() {
+            if (includeInitialRender && isInitialRender) {
+                callback(this.props);
+                isInitialRender = false;
+            }
+        },
+        componentDidUpdate(prevProps) {
+            if (locationHasChanged(prevProps, this.props)) {
+                callback(this.props);
             }
         }
     });
+};

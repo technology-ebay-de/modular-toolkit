@@ -11,7 +11,8 @@
     "publish-beta": "lerna publish --npm-tag=beta --cd-version=prerelease --preid=beta ${@:1}",
     "publish-beta-patch": "lerna publish --npm-tag=beta --cd-version=prepatch --preid=beta ${@:1}",
     "publish-beta-minor": "lerna publish --npm-tag=beta --cd-version=preminor --preid=beta ${@:1}",
-    "publish-beta-major": "lerna publish --npm-tag=beta --cd-version=premajor --preid=beta ${@:1}"
+    "publish-beta-major": "lerna publish --npm-tag=beta --cd-version=premajor --preid=beta ${@:1}",
+    "undo": "git reset --hard HEAD~1 && git tag -d $(git log --date-order --tags --simplify-by-decoration --pretty=format:'%d' | head -1 | tr -d '()' | sed 's/,* tag://g')"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
