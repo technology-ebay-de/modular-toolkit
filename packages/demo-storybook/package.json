@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/demo-storybook",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Storybook for demo user interface components",
   "main": "index.js",
   "scripts": {
