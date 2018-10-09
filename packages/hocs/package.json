@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/hocs",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "description": "Higher order components (HoCs) for connecting modules",
   "esnext": "index-esnext.js",
   "main": "index.js",
@@ -19,7 +19,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@modular-toolkit/selectors": "^2.0.2",
+    "@modular-toolkit/selectors": "^2.0.3",
     "lodash.debounce": "^4.0.8"
   },
   "peerDependencies": {
