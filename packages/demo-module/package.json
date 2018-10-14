@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/demo-module",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Demo module for the React Modular Toolkit",
   "esnext": "index-esnext.js",
   "main": "index.js",
