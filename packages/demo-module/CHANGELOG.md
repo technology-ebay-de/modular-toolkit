@@ -1,21 +1,6 @@
 # Changelog
 
-## 6.0.0 / 17 Oct 2018
-
-**Breaking:**
-
-*   Automatically dispatches action to load data when the HackerNews component mounts and no
-    previous data is in the Redux state (using `bootstrap` from `hocs` version 4)
-
-## 5.0.1 / 16 Oct 2018
-
-**Breaking:**
-
-*   Removed `createInitialState` function. If you want to have the Hacker News box pre-filled with some
-    top stories, simply put a topStories property somewhere in your global Redux state and make sure
-    the path you specify when connecting the selectors points to the parent node of that property.
-
-## 4.0.2 / 14 Oct 2018
+## 4.0.0 / 11 Oct 2018
 
 **Breaking:**
 
@@ -31,6 +16,7 @@ import { loadTopStoriesAction } from '@modular-toolkit/actions';
 
 `createInitialState` now receives an Object with a property `topStories`
 instead of receiving the `topStories` directly.
+
 
 ## 3.1.0 / 24 Sep 2018
 
