@@ -1,3 +1,3 @@
-import { hackerNewsActions } from '@modular-toolkit/demo-module';
+import { loadTopStoriesAction } from '@modular-toolkit/demo-module';
 
-export default ({ dispatch }) => () => dispatch(hackerNewsActions.loadTopStoriesAction.start());
+export default ({ dispatch }) => () => dispatch(loadTopStoriesAction.start());

@@ -1,3 +1,1 @@
-export default (topStories = null) => ({
-    topStories
-});
+export default (initalState = { topStories: null }) => initalState;

@@ -1,5 +1,23 @@
 # Changelog
 
+## 4.0.0 / 11 Oct 2018
+
+**Breaking:**
+
+Modules are imported differently:
+
+```javascript
+import { selectors } from '@modular-toolkit/demo-module';
+import { reducer } from '@modular-toolkit/demo-module';
+import { saga } from '@modular-toolkit/demo-module';
+import { createInitialState } from '@modular-toolkit/demo-module';
+import { loadTopStoriesAction } from '@modular-toolkit/actions';
+```
+
+`createInitialState` now receives an Object with a property `topStories`
+instead of receiving the `topStories` directly.
+
+
 ## 3.1.0 / 24 Sep 2018
 
 * Dependency update to fix some security issues
