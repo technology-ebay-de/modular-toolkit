@@ -1,6 +1,6 @@
 # Changelog
 
-## 4.0.1 / 14 Oct 2018
+## 4.0.2 / 14 Oct 2018
 
 **Breaking:**
 
