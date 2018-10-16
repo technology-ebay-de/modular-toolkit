@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { hackerNewsRootReducer } from '@modular-toolkit/demo-module';
+import { reducer as hackerNewsReducer } from '@modular-toolkit/demo-module';
 
 export default combineReducers({
     page(state = {}, action = {}) {
@@ -9,6 +9,6 @@ export default combineReducers({
         }
     },
     modules: combineReducers({
-        hackerNews: hackerNewsRootReducer
+        hackerNews: hackerNewsReducer
     })
 });

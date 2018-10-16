@@ -1,10 +1,6 @@
 import { LOAD_TOP_STORIES_START, LOAD_TOP_STORIES_SUCCESS } from './actions';
 
-import createInitialState from './createInitialState';
-
-const initialState = createInitialState();
-
-export default (state = initialState, action = {}) => {
+export default (state = {}, action = {}) => {
     switch (action.type) {
         case LOAD_TOP_STORIES_START:
             return {
