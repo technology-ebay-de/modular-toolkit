@@ -1,5 +1,13 @@
 # Changelog
 
+## 5.0.0 / 16 Oct 2018
+
+**Breaking:**
+
+Removed `createInitialState` function. If you want to have the Hacker News box pre-filled with some
+top stories, simply put a topStories property somewhere in your global Redux state and make sure
+the path you specify when connecting the selectors points to the parent node of that property.
+
 ## 4.0.2 / 14 Oct 2018
 
 **Breaking:**
