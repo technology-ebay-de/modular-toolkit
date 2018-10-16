@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.0.1 / 16 Oct 2018
+
+* Dependency update, now using demo-module 5.0.0
+
 ## 4.0.2 / 14 Oct 2018
 
 * Dependency update, now using demo-module 4.0.0
