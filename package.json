@@ -8,10 +8,10 @@
     "precommit": "lint-staged",
     "postinstall": "lerna bootstrap",
     "publish": "lerna publish ${@:1}",
-    "publish-beta": "lerna publish --npm-tag=beta",
-    "publish-beta-patch": "lerna publish prepatch --npm-tag=beta",
-    "publish-beta-minor": "lerna publish preminor --npm-tag=beta",
-    "publish-beta-major": "lerna publish premajor --npm-tag=beta",
+    "publish-beta": "lerna publish --npm-tag beta",
+    "publish-beta-patch": "lerna publish prepatch --npm-tag beta",
+    "publish-beta-minor": "lerna publish preminor --npm-tag beta",
+    "publish-beta-major": "lerna publish premajor --npm-tag beta",
     "undo": "git reset --hard HEAD~1 && git tag -d $(git log --date-order --tags --simplify-by-decoration --pretty=format:'%d' | head -1 | tr -d '()' | sed 's/,* tag://g')"
   },
   "publishConfig": {
