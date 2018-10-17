@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/demo-module",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Demo module for the React Modular Toolkit",
   "esnext": "index-esnext.js",
   "main": "index.js",
@@ -20,7 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "@modular-toolkit/demo-ui": "^1.1.0",
-    "@modular-toolkit/hocs": "^4.0.0-alpha.0",
+    "@modular-toolkit/hocs": "^4.0.0",
     "babel-runtime": "^6.26.0"
   },
   "peerDependencies": {
