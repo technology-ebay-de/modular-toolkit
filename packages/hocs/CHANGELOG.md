@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.0.0 / 17 Oct 2018
+
+**Breaking**
+
+* `bootstrap` now uses the `componentDidMount` lifecycle phase to execute the callback function. Previously,
+it used `componentWillMount`, which is deprecated and will be removed in React version 17.
+
+**Other**
+
+* Removed Sinon and Chai from unit tests
+
 ## 3.1.0 / 24 Sep 2018
 
 * `onLocationChanged` now uses `componentDidUpdate` instead of `componentWillReceiveProps` to ensure compatibility with 

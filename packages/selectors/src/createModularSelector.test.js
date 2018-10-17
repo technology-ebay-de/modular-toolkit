@@ -14,12 +14,9 @@ const state = {
 
 describe('When I call the createModularSelector function', () => {
     let selector;
-    beforeAll(() => {
-        selector = createModularSelector(getAProp, getBProp, (AAA, BBB) => AAA + BBB);
-    });
+    beforeAll(() => (selector = createModularSelector(getAProp, getBProp, (AAA, BBB) => AAA + BBB)));
     describe('the resulting selector', () => {
-        it('works as expected', () => void selector(state).should.equal('AAABBB'));
-        it('has an indicator that it requires global state', () =>
-            void selector.requiresGlobalState.should.equal(true));
+        it('works as expected', () => expect(selector(state)).toEqual('AAABBB'));
+        it('has an indicator that it requires global state', () => expect(selector.requiresGlobalState).toEqual(true));
     });
 });

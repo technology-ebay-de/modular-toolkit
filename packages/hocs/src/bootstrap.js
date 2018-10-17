@@ -2,7 +2,7 @@ import { lifecycle } from 'recompose';
 
 export default fn =>
     lifecycle({
-        componentWillMount() {
+        componentDidMount() {
             fn(this.props);
         }
     });

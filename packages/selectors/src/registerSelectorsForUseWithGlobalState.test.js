@@ -9,9 +9,8 @@ describe('When I call the function', () => {
             };
             registerSelectorsForUseWithGlobalState('some.path', selectors);
         });
-        it('should should add globalStateContext to each selector', () => {
-            selectors.foo.globalStateContext.path.should.equal('some.path');
-        });
+        it('should should add globalStateContext to each selector', () =>
+            expect(selectors.foo.globalStateContext.path).toEqual('some.path'));
     });
     describe('with an array', () => {
         let selectors;
@@ -19,8 +18,7 @@ describe('When I call the function', () => {
             selectors = [{ foo: () => ({}) }];
             registerSelectorsForUseWithGlobalState('some.path', selectors);
         });
-        it('should should add globalStateContext to each selector', () => {
-            selectors[0].globalStateContext.path.should.equal('some.path');
-        });
+        it('should should add globalStateContext to each selector', () =>
+            expect(selectors[0].globalStateContext.path).toEqual('some.path'));
     });
 });

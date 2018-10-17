@@ -1,11 +1,11 @@
 const path = require('path');
 
-const packages = ['demo-app', 'demo-module', 'hocs', 'selectors'];
+const packages = ['hocs', 'selectors'];
 
 module.exports = wallaby => {
     addPackagesToNodePath(wallaby);
     return {
-        files: ['packages/**/*.js', '!**/*.test.js', '!**/node_modules/**'],
+        files: ['setupJest.js', 'packages/**/*.js', '!**/*.test.js', '!**/node_modules/**', '!packages/demo-app/**'],
 
         tests: ['**/*.test.js', '!**/node_modules/**'],
 
