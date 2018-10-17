@@ -18,7 +18,7 @@ describe('When I call the connectSelectors function with an object', () => {
             }))
     );
     it('it returns an object with same keys and values of selector', () =>
-        void mapStateToProps().should.deep.equal({
+        expect(mapStateToProps()).toEqual({
             foo: 'foo result',
             bar: 'bar result'
         }));
@@ -36,7 +36,7 @@ describe('When I call the connectSelectors function with an object with nested s
             }))
     );
     it('it returns an object with same keys and values of selector', () =>
-        void mapStateToProps().should.deep.equal({
+        expect(mapStateToProps()).toEqual({
             foo: 'foo result',
             bar: {
                 baz: 'baz result',

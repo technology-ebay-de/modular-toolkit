@@ -16,13 +16,13 @@ included in the same npm package ([more info here](http://2ality.com/2017/06/pkg
 
 ### [bootstrap](src/bootstrap.js)
 
-[Recompose](https://github.com/acdlite/recompose) helper function for dispatching actions on `componentWillMount`.
+[Recompose](https://github.com/acdlite/recompose) helper function for executing code on `componentDidMount`.
 Just reduces some boilerplate:
 
 ```javascript
 lifecycle({
-    componentWillMount({ foo }) {
-        someActionDispatcher(foo);
+    componentDidMount({ foo }) {
+        someCallback(foo);
     }
 });
 ```
@@ -32,7 +32,7 @@ lifecycle({
 ```javascript
 import { bootstrap } from '@modular-toolkit/hocs';
 
-bootstrap(({ foo }) => someActionDispatcher(foo));
+bootstrap(({ foo }) => someCallback(foo));
 ```
 
 ### [callHandlerOnResize](src/callHandlerOnResize.js)

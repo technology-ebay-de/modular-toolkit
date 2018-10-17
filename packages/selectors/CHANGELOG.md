@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0 / 17 Oct 2018
+
+Removed Sinon and Chai from unit tests
+
 ## 2.0.0 / 14 Mar 2018
 
 * JS code now ES5 compatible (transpiled through Babel)

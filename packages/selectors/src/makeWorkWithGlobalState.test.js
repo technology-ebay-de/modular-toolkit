@@ -15,7 +15,7 @@ describe('When I call the function without registering the stub first', () => {
             } catch (e) {
                 error = e;
             }
-            error.message.should.startWith('This selector was not registered for use with global state');
+            expect(error.message).toMatch(/^This selector was not registered for use with global state/);
         });
     });
 });
@@ -26,15 +26,12 @@ describe('When I call the function with registering the stub first', () => {
         registerSelectorsForUserWithGlobalState('foo', { foo: mockSelector });
         selector = withGlobalState(mockSelector);
     });
-    describe('the returned selector', () => {
-        it('works with global state', () => {
-            selector({ foo: { bar: 'zab' } }).should.equal('zab');
-        });
-    });
+    describe('the returned selector', () =>
+        it('works with global state', () => expect(selector({ foo: { bar: 'zab' } })).toEqual('zab')));
     describe('another time', () => {
         it('it will return a cached selector', () => {
             const selector2 = withGlobalState(mockSelector);
-            selector2.should.equal(selector);
+            expect(selector2).toEqual(selector);
         });
     });
 });
@@ -45,9 +42,5 @@ describe('When I call the function with a selector that requires the global stat
         selectorIn.requiresGlobalState = true;
         selectorOut = withGlobalState(selectorIn);
     });
-    describe('the returned selector', () => {
-        it('remains the same', () => {
-            selectorOut.should.equal(selectorIn);
-        });
-    });
+    describe('the returned selector', () => it('remains the same', () => expect(selectorOut).toEqual(selectorIn)));
 });
