@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/demo-storybook",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Storybook for demo user interface components",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@modular-toolkit/demo-ui": "^1.1.0",
+    "@modular-toolkit/demo-ui": "^1.1.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
