@@ -1,4 +1,4 @@
-import { connectSelectors } from '@modular-toolkit/hocs';
+import { connectSelectors, bootstrap } from '@modular-toolkit/hocs';
 import { compose, withHandlers, setDisplayName } from 'recompose';
 
 import { enhanceWithSpinner } from '../../enhancers';
