@@ -41,6 +41,7 @@
     "ignore": [
       "packages/demo-ui/index.js",
       "packages/demo-module/index.js",
+      "packages/other-demo-module/index.js",
       "packages/hocs/index.js",
       "packages/selectors/index.js"
     ]

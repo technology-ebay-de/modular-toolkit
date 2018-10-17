@@ -1,23 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { PageHeader } from './components';
+import { HomePage } from './components';
 import configureStore from './configureStore';
-import { HackerNews } from '@modular-toolkit/demo-module';
 import './main.css';
-import registerSelectors from './registerSelectors';
 
 const store = configureStore();
-
-registerSelectors();
 
 function App() {
     return (
         <Provider store={store}>
-            <Fragment>
-                <PageHeader />
-                <HackerNews />
-            </Fragment>
+            <HomePage />
         </Provider>
     );
 }
