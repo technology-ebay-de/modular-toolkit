@@ -1,8 +1,13 @@
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
 import { installReducer } from '.';
 
-export default ({ path, module: { reducer, saga, selectors }, sagaMiddleware, store }) => {
+let addStorePath = null;
+
+export default ({ path, module: { reducer, saga, selectors }, sagaMiddleware, store, rootReducer }) => {
     registerSelectorsForUseWithGlobalState(path, selectors);
-    installReducer(store)(path)(reducer);
+    if (!addStorePath) {
+        addStorePath = installReducer(store, rootReducer);
+    }
+    addStorePath(path)(reducer);
     sagaMiddleware.run(saga);
 };

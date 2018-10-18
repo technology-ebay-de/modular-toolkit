@@ -21,7 +21,7 @@ export default (store, existingReducer) => {
     });
 
     // addStorePath
-    return (storePathName, initialState = []) => {
+    return (storePathName, initialState = {}) => {
         // this is the store level reducer - which looks for store path level reducers
         currentStorePaths[storePathName] = (state = initialState, action) => {
             const { type } = action;
@@ -51,37 +51,23 @@ export default (store, existingReducer) => {
             const staticReducer = existingReducer || combinedReducer;
             let nextState = staticReducer(state, action);
             let hasChanges = state !== nextState;
-            nextState = Object.keys(currentStorePaths).reduce((incompleteState, storePath) => {
-                const reducer = currentStorePaths[storePath];
-                const currentStorePathState = nextState[storePath];
-                const newStorePathState = reducer(currentStorePathState, action);
-                hasChanges = hasChanges || currentStorePathState !== newStorePathState;
+            nextState = Object.keys(currentStorePaths).reduce(
+                (incompleteState, storePath) => {
+                    const reducer = currentStorePaths[storePath];
+                    const currentStorePathState = nextState[storePath];
+                    const newStorePathState = reducer(currentStorePathState, action);
+                    hasChanges = hasChanges || currentStorePathState !== newStorePathState;
 
-                // @TODO - use the spread operator as soon as travis updates their node version
-                const nextIncompleteState = Object.assign({}, incompleteState);
-                nextIncompleteState[storePath] = newStorePathState;
-                return nextIncompleteState;
-            }, Object.assign({}, nextState));
+                    const nextIncompleteState = { ...incompleteState };
+                    nextIncompleteState[storePath] = newStorePathState;
+                    return nextIncompleteState;
+                },
+                { ...nextState }
+            );
 
             return hasChanges ? nextState : state;
         });
 
-        // the setup allows reducers registration both ways:
-        // - addReducer((state, action) => { switch(action.type) {...} }
-        // - addReducer(type, (state, action) => {...})
-        return (...params) => {
-            let [actionType, reducer] = params;
-            if (typeof actionType === 'function') {
-                reducer = actionType;
-                actionType = undefined;
-            }
-
-            if (actionType) {
-                reducersByActionType[storePathName][actionType] = reducersByActionType[storePathName][actionType] || [];
-                reducersByActionType[storePathName][actionType].push(reducer);
-            } else {
-                reducersByStorePath[storePathName].push(reducer);
-            }
-        };
+        return reducer => reducersByStorePath[storePathName].push(reducer);
     };
 };

@@ -11,7 +11,7 @@ const initialState = createInitialState();
 export default () => {
     const sagaMiddleware = createSagaMiddleware();
     const store = createStore(rootReducer, initialState, applyMiddleware(sagaMiddleware));
-    installBrick({ path: 'hackerNews', module: hackerNews, sagaMiddleware, store });
-    installBrick({ path: 'gists', module: gists, sagaMiddleware, store });
+    installBrick({ path: 'hackerNews', module: hackerNews, sagaMiddleware, store, rootReducer });
+    installBrick({ path: 'gists', module: gists, sagaMiddleware, store, rootReducer });
     return store;
 };
