@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When I create a brick manager and I add a reducer with a complex store path and I dispatch an action for the complex store path reducer and I dispatch a different action the Redux state is correct 1`] = `
+Object {
+  "argh": Object {
+    "argh": "ARGH",
+  },
+  "bricks": Object {
+    "fasel": Object {
+      "basel": "COOKIE",
+    },
+  },
+}
+`;
+
+exports[`When I create a brick manager and I add a reducer with a complex store path and I dispatch an action for the complex store path reducer and I dispatch and action for the root reducer the Redux state is correct 1`] = `
+Object {
+  "argh": Object {
+    "argh": "ARGH",
+  },
+  "bricks": Object {
+    "fasel": Object {
+      "basel": "BASEL",
+    },
+  },
+  "thud": "THUD",
+}
+`;
+
+exports[`When I create a brick manager and I add a reducer with a complex store path and I dispatch an action for the complex store path reducer the Redux state is correct 1`] = `
+Object {
+  "argh": Object {
+    "argh": "ARGH",
+  },
+  "bricks": Object {
+    "fasel": Object {
+      "basel": "BASEL",
+    },
+  },
+}
+`;
+
+exports[`When I create a brick manager and I add a reducer with a simple store path and I dispatch an action for the simple store path reducer the Redux state is correct 1`] = `
+Object {
+  "argh": Object {
+    "argh": "ARGH",
+  },
+}
+`;
+
+exports[`When I create a brick manager and I store a reducer (internal function) with a complex path and I store another reducer at the first level of the reducers tree and I store yet another reducer that overwrites the path of the first one the internal property reducers has the correct value 1`] = `
+Object {
+  "bar": Object {
+    "qux": "QUX_REDUCER",
+    "thud": "THUD_REDUCER",
+  },
+}
+`;
+
+exports[`When I create a brick manager and I store a reducer (internal function) with a complex path and I store another reducer at the first level of the reducers tree the internal property reducers has the correct value 1`] = `
+Object {
+  "bar": Object {
+    "qux": Object {
+      "fred": "FRED_REDUCER",
+    },
+    "thud": "THUD_REDUCER",
+  },
+}
+`;
+
+exports[`When I create a brick manager and I store a reducer (internal function) with a complex path the internal property reducers has the correct value 1`] = `
+Object {
+  "bar": Object {
+    "qux": Object {
+      "fred": "FRED_REDUCER",
+    },
+  },
+}
+`;

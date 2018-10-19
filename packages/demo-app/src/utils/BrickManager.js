@@ -21,29 +21,69 @@ export default class {
         this.sagaMiddleware.run(saga);
     }
 
+    addStorePath(storePathName) {
+        this.storePaths[storePathName] = (state = {}, action) => {
+            const reducer = this.retrieveReducer(storePathName);
+            return reducer ? reducer(state, action) : state;
+        };
+    }
+
     addReducer(storePathName, reducer) {
-        this.storePaths[storePathName] = (state = {}, action) =>
-            this.reducers[storePathName] ? this.reducers[storePathName](state, action) : state;
+        this.addStorePath(storePathName);
+        this.storeReducer(storePathName, reducer);
 
         this.store.replaceReducer((state = {}, action) => {
-            let nextState = this.initialReducer(state, action);
+            let nextState = { ...state, ...this.initialReducer(state, action) };
             let hasChanges = state !== nextState;
-            nextState = Object.keys(this.storePaths).reduce(
-                (incompleteState, storePath) => {
-                    const red = this.storePaths[storePath];
-                    const currentStorePathState = nextState[storePath];
-                    const newStorePathState = red(currentStorePathState, action);
-                    hasChanges = hasChanges || currentStorePathState !== newStorePathState;
-
-                    const nextIncompleteState = { ...incompleteState };
-                    nextIncompleteState[storePath] = newStorePathState;
-                    return nextIncompleteState;
-                },
-                { ...nextState }
-            );
-
+            nextState = this.addValueByDottedPath(nextState, storePathName);
+            let curr = nextState;
+            this.forEachPathSegment(storePathName, (segment, isLast, currPath) => {
+                const objectOrReducer = this.retrieveReducer(currPath);
+                if (typeof objectOrReducer === 'function') {
+                    const nextSegmentState = objectOrReducer(curr[segment], action);
+                    if (nextSegmentState !== curr[segment]) {
+                        curr[segment] = nextSegmentState;
+                        hasChanges = true;
+                    }
+                }
+                curr = curr[segment];
+            });
             return hasChanges ? nextState : state;
         });
-        this.reducers[storePathName] = reducer;
+    }
+
+    storeReducer(storePathName, reducer) {
+        this.reducers = this.addValueByDottedPath(this.reducers, storePathName, reducer);
+    }
+
+    addValueByDottedPath(object, path, value = null) {
+        const returnValue = { ...object };
+        let curr = returnValue;
+        this.forEachPathSegment(path, (segment, isLast) => {
+            if (isLast) {
+                if (value) {
+                    curr[segment] = value;
+                }
+                return;
+            }
+            if (!curr[segment]) {
+                curr[segment] = {};
+            }
+            curr = curr[segment];
+        });
+        return returnValue;
+    }
+
+    forEachPathSegment(path, callback) {
+        const pathSegments = path.split('.');
+        const currSegments = [];
+        pathSegments.forEach((segment, index) => {
+            currSegments.push(segment);
+            return callback(segment, index === pathSegments.length - 1, currSegments.join('.'));
+        });
+    }
+
+    retrieveReducer(storePathName) {
+        return storePathName.split('.').reduce((o, i) => o[i], this.reducers);
     }
 }
