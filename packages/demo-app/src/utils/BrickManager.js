@@ -1,4 +1,4 @@
-import { addValueByDottedPath, walkObject, getValueByDottedPath } from '.';
+import { addValueByDottedPath, walkObject, getValueByDottedPath, filterObject, deepMerge } from '.';
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
 
 const addReducer = Symbol(
@@ -24,6 +24,7 @@ export default class {
     constructor({ store, reducer = s => s, sagaMiddleware }) {
         this.store = store;
         this.initialReducer = this[createInitialReducer](reducer);
+        this.initialStateProps = Object.keys(store.getState());
         this.store.replaceReducer(this.initialReducer);
         this.reducers = {};
         this.sagaMiddleware = sagaMiddleware;
@@ -46,13 +47,15 @@ export default class {
         this[saveReducer](storePath, reducer);
 
         this.store.replaceReducer((state = {}, action) => {
-            let stateAfterInitialReduction = this.initialReducer(state, action);
-            let hasChanges = state !== stateAfterInitialReduction;
+            const stateForInitialReducer = filterObject(state, this.initialStateProps);
+            let stateAfterInitialReduction = this.initialReducer(stateForInitialReducer, action);
+            let hasChanges = stateForInitialReducer !== stateAfterInitialReduction;
 
             // this is important – if we don't merge the state with the state after
             // running through the initial reducer (i.e. the one the Redux store was
             // created with), it will kick out the state from the reducers added later
-            stateAfterInitialReduction = { ...state, ...stateAfterInitialReduction };
+            // stateAfterInitialReduction = { ...state, ...stateAfterInitialReduction };
+            stateAfterInitialReduction = deepMerge(state, stateAfterInitialReduction);
 
             let finalState = { ...stateAfterInitialReduction };
             walkObject(stateAfterInitialReduction, (currentSubState, path) => {
