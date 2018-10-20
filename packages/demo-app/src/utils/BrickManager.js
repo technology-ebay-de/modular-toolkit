@@ -20,13 +20,21 @@ export default class {
     }
 
     installBrick(storePath, { reducer, saga, selectors }) {
-        registerSelectorsForUseWithGlobalState(storePath, selectors);
+        this.addSelectors(storePath, selectors);
         this.addReducer(storePath, reducer);
+        this.addSaga(saga);
+    }
+
+    addSelectors(storePath, selectors) {
+        registerSelectorsForUseWithGlobalState(storePath, selectors);
+    }
+
+    addSaga(saga) {
         this.sagaMiddleware.run(saga);
     }
 
-    addReducer(storePathName, reducer) {
-        this[saveReducer](storePathName, reducer);
+    addReducer(storePath, reducer) {
+        this[saveReducer](storePath, reducer);
         let shouldInitializeState = true;
 
         this.store.replaceReducer((state = {}, action) => {
@@ -34,7 +42,7 @@ export default class {
             let stateAfterInitialReduction = { ...state, ...this.initialReducer(state, action) };
             let hasChanges = state !== stateAfterInitialReduction;
             if (shouldInitializeState) {
-                stateAfterInitialReduction = addValueByDottedPath(stateAfterInitialReduction, storePathName, {});
+                stateAfterInitialReduction = addValueByDottedPath(stateAfterInitialReduction, storePath, {});
                 shouldInitializeState = false;
             }
 
@@ -55,11 +63,11 @@ export default class {
         });
     }
 
-    [saveReducer](storePathName, reducer) {
-        this.reducers = addValueByDottedPath(this.reducers, storePathName, reducer);
+    [saveReducer](storePath, reducer) {
+        this.reducers = addValueByDottedPath(this.reducers, storePath, reducer);
     }
 
-    [loadReducer](storePathName) {
-        return storePathName.split('.').reduce((o, i) => (o ? o[i] : null), this.reducers);
+    [loadReducer](storePath) {
+        return storePath.split('.').reduce((o, i) => (o ? o[i] : null), this.reducers);
     }
 }

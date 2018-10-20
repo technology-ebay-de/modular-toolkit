@@ -70,21 +70,27 @@ Object {
 }
 `;
 
-exports[`When I create a brick manager and I save a reducer (internal function) with a complex path and I save another reducer at the first level of the reducers tree and I save yet another reducer that overwrites the path of the first one the internal property reducers has the correct value 1`] = `
+exports[`When I create a brick manager and I install a Brick the reducer is stored 1`] = `
 Object {
-  "bar": Object {
-    "qux": "QUX_REDUCER",
-    "thud": "THUD_REDUCER",
+  "bricks": Object {
+    "fasel": [Function],
   },
 }
 `;
 
-exports[`When I create a brick manager and I save a reducer (internal function) with a complex path and I save another reducer at the first level of the reducers tree and I store yet another reducer that overwrites the path of the first one the internal property reducers has the correct value 1`] = `
+exports[`When I create a brick manager and I install two Bricks the reducers of both bricks are stored 1`] = `
+Object {
+  "bricks": Object {
+    "fasel": [Function],
+    "xyzzy": [Function],
+  },
+}
+`;
+
+exports[`When I create a brick manager and I save a reducer (internal function) with a complex path and I save another reducer at the first level of the reducers tree and I save yet another reducer that overwrites the path of the first one the internal property reducers has the correct value 1`] = `
 Object {
   "bar": Object {
-    "qux": Object {
-      "fred": "FRED_REDUCER",
-    },
+    "qux": "QUX_REDUCER",
     "thud": "THUD_REDUCER",
   },
 }
@@ -114,35 +120,5 @@ Object {
 exports[`When I create a brick manager and I save a reducer (internal function) with a simple path the internal property reducers has the correct value 1`] = `
 Object {
   "fred": "FRED_REDUCER",
-}
-`;
-
-exports[`When I create a brick manager and I store a reducer (internal function) with a complex path and I store another reducer at the first level of the reducers tree and I store yet another reducer that overwrites the path of the first one the internal property reducers has the correct value 1`] = `
-Object {
-  "bar": Object {
-    "qux": "QUX_REDUCER",
-    "thud": "THUD_REDUCER",
-  },
-}
-`;
-
-exports[`When I create a brick manager and I store a reducer (internal function) with a complex path and I store another reducer at the first level of the reducers tree the internal property reducers has the correct value 1`] = `
-Object {
-  "bar": Object {
-    "qux": Object {
-      "fred": "FRED_REDUCER",
-    },
-    "thud": "THUD_REDUCER",
-  },
-}
-`;
-
-exports[`When I create a brick manager and I store a reducer (internal function) with a complex path the internal property reducers has the correct value 1`] = `
-Object {
-  "bar": Object {
-    "qux": Object {
-      "fred": "FRED_REDUCER",
-    },
-  },
 }
 `;
