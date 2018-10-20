@@ -2,6 +2,20 @@ import addValueByDottedPath from './addValueByDottedPath';
 
 test.each([
     [
+        {
+            argh: {}
+        },
+        'argh',
+        {
+            argh: 'ARGH'
+        },
+        {
+            argh: {
+                argh: 'ARGH'
+            }
+        }
+    ],
+    [
         {},
         'bla.blub',
         'DUDEL',

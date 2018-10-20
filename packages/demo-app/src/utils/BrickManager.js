@@ -49,7 +49,7 @@ export default class {
                 shouldInitializeState = false;
             }
 
-            const finalState = { ...stateAfterInitialReduction };
+            let finalState = { ...stateAfterInitialReduction };
             walkObject(stateAfterInitialReduction, (currentSubState, path) => {
                 const currReducer = this[loadReducer](path);
                 if (typeof currReducer !== 'function') {
@@ -57,7 +57,7 @@ export default class {
                 }
                 const nextSubState = currReducer(currentSubState, action);
                 if (nextSubState !== currentSubState) {
-                    addValueByDottedPath(finalState, path, nextSubState);
+                    finalState = addValueByDottedPath(finalState, path, nextSubState);
                     hasChanges = true;
                 }
             });
