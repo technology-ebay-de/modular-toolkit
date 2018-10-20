@@ -1,15 +1,5 @@
 export default () => ({
-    page: { title: 'Modular Toolkit Demo' },
-    fasel: {
-        basel: {
-            hackerNews: {}
-        }
-    },
-    dudel: {
-        pudel: {
-            gists: {}
-        }
-    }
+    page: { title: 'Modular Toolkit Demo' }
 });
 
 // Note: you can also use this module to hydrate from an existing state (e.g. from server side rendering) like this:
