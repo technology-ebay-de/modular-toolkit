@@ -1,11 +1,13 @@
+import { isObject } from '.';
+
 function walkObject(obj, callback, segments = []) {
     for (const [property, value] of Object.entries(obj)) {
-        if (value === null || typeof value === 'undefined') {
+        if (!isObject(value)) {
             continue;
         }
         const nextSegments = segments.concat([property]);
         callback(value, nextSegments.join('.'));
-        if (typeof value === 'object' && Object.keys(value).length > 0) {
+        if (Object.keys(value).length > 0) {
             walkObject(value, callback, nextSegments);
         }
     }

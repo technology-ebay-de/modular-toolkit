@@ -1,9 +1,13 @@
-import { addValueByDottedPath, walkObject } from '.';
+import { addValueByDottedPath, walkObject, getValueByDottedPath } from '.';
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
 
 // exported for testing only
-export const saveReducer = Symbol('save reducer');
-export const loadReducer = Symbol('load reducer');
+export const saveReducer = Symbol(
+    process.env.NODE_ENV === 'production' ? undefined : 'saveReducer (private method of BrickManager)'
+);
+export const loadReducer = Symbol(
+    process.env.NODE_ENV === 'production' ? undefined : 'loadReducer (private method of BrickManager)'
+);
 
 export default class {
     constructor({ store, reducer = s => s, sagaMiddleware }) {
@@ -38,7 +42,6 @@ export default class {
         let shouldInitializeState = true;
 
         this.store.replaceReducer((state = {}, action) => {
-            // console.log('~~~~~~~~~~~~~~~~~~~~', action.type); // PH_TODO
             let stateAfterInitialReduction = { ...state, ...this.initialReducer(state, action) };
             let hasChanges = state !== stateAfterInitialReduction;
             if (shouldInitializeState) {
@@ -68,6 +71,6 @@ export default class {
     }
 
     [loadReducer](storePath) {
-        return storePath.split('.').reduce((o, i) => (o ? o[i] : null), this.reducers);
+        return getValueByDottedPath(this.reducers, storePath);
     }
 }
