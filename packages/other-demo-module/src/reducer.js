@@ -1,16 +1,16 @@
-import { LOAD_TOP_STORIES_START, LOAD_TOP_STORIES_SUCCESS } from './actions';
+import { LOAD_GISTS_START, LOAD_GISTS_SUCCESS } from './actions';
 
 export default (state = {}, action = {}) => {
     switch (action.type) {
-        case LOAD_TOP_STORIES_START:
+        case LOAD_GISTS_START:
             return {
                 ...state,
-                topStories: null
+                gists: null
             };
-        case LOAD_TOP_STORIES_SUCCESS:
+        case LOAD_GISTS_SUCCESS:
             return {
                 ...state,
-                topStories: action.topStories
+                gists: action.gists
             };
         default:
             return state;

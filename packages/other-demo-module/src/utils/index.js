@@ -1,1 +1,1 @@
-export { default as fetchTopStories } from './fetchTopStories';
+export { default as fetchGists } from './fetchGists';

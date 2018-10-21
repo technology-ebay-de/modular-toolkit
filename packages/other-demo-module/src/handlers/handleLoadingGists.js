@@ -1,3 +1,3 @@
-import { loadTopStoriesAction } from '../actions';
+import { loadGistsAction } from '../actions';
 
-export default ({ dispatch }) => () => dispatch(loadTopStoriesAction.start());
+export default ({ dispatch }) => () => dispatch(loadGistsAction.start());

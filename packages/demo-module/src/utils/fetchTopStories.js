@@ -1,6 +1,6 @@
 const endpointUrl = 'https://hacker-news.firebaseio.com/v0';
 const defaultMaxNumberOfItems = 20;
-const delay = 1500;
+const delay = 900;
 
 const options = {
     method: 'GET',

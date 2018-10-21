@@ -1,1 +1,1 @@
-export * from './loadTopStoriesAction';
+export * from './loadGistsAction';

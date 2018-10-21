@@ -1,5 +1,5 @@
 const endpointUrl = 'https://api.github.com/gists';
-const delay = 1200;
+const delay = 700;
 
 export default async () => {
     /* we're adding a delay here so you can see the spinner */

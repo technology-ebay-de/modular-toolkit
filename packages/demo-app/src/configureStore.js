@@ -18,8 +18,8 @@ export default () => {
     const store = createStore(reducer, initialState, enhancer);
     const brickManager = new BrickManager({ store, reducer, sagaMiddleware });
     brickManager.installBricks({
-        'fasel.basel.hackerNews': hackerNews,
-        'dudel.pudel.gists': gists
+        'bricks.hackerNews': hackerNews,
+        'bricks.gists': gists
     });
     return store;
 };

@@ -1,6 +1,6 @@
 import { all, fork } from 'redux-saga/effects';
-import loadTopStoriesSaga from './loadTopStoriesSaga';
+import loadGistsSaga from './loadGistsSaga';
 
 export default function* sagas() {
-    yield all([fork(loadTopStoriesSaga)]);
+    yield all([fork(loadGistsSaga)]);
 }
