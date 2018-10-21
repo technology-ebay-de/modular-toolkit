@@ -2,7 +2,7 @@
 
 Tools for composing React applications from decoupled modules.
 
-For details, see each of the test utilities:
+For details, see each of the tool packages:
 
 * **bricks**: [readme](packages/bricks/README.md) / [changelog](packages/bricks/CHANGELOG.md)
 * **hocs**: [readme](packages/hocs/README.md) / [changelog](packages/hocs/CHANGELOG.md)
