@@ -1,1 +1,1 @@
-export * from './changeBackgroundColor';
+export * from './changeColor';

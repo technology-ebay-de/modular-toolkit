@@ -5,6 +5,7 @@ import reducer from './reducer';
 import hackerNews from '@modular-toolkit/demo-module';
 import gists from '@modular-toolkit/other-demo-module';
 import { BrickManager } from '@modular-toolkit/bricks';
+import saga from './sagas';
 
 const initialState = createInitialState();
 
@@ -16,6 +17,7 @@ export default () => {
     const sagaMiddleware = createSagaMiddleware();
     const enhancer = composeEnhancer(applyMiddleware(sagaMiddleware));
     const store = createStore(reducer, initialState, enhancer);
+    sagaMiddleware.run(saga);
     const brickManager = new BrickManager({ store, reducer, sagaMiddleware });
     brickManager.installBricks({
         'bricks.hackerNews': hackerNews,

@@ -1,13 +1,16 @@
-import { CHANGE_BACKGROUND_COLOR } from './actions';
+import { CHANGE_COLOR } from './actions';
 import { combineReducers } from '@modular-toolkit/bricks';
 
 export default combineReducers({
     page(state = {}, action = {}) {
         switch (action.type) {
-            case CHANGE_BACKGROUND_COLOR:
+            case CHANGE_COLOR:
                 return {
                     ...state,
-                    backgroundColor: action.backgroundColor
+                    color: {
+                        background: action.background,
+                        header: action.header
+                    }
                 };
             default:
                 return state;

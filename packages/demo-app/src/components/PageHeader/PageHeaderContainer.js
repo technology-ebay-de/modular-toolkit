@@ -5,7 +5,7 @@ import handleUpdatingNews from './handleUpdatingNews';
 
 const enhance = compose(
     setDisplayName('PageHeaderContainer'),
-    connect(({ page: { title } }) => ({ title })),
+    connect(({ page: { title, color: { header } } }) => ({ title, backgroundColor: header })),
     withHandlers({ handleUpdatingNews })
 );
 

@@ -1,15 +1,14 @@
 import { compose, setDisplayName, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
-import { withBricks } from '../../utils';
 import HomePage from './HomePage';
-import { changeBackgroundColor } from '../../actions';
+import { changeColor } from '../../actions';
+import getColors from './getColors';
 
 const enhance = compose(
     setDisplayName('HomePageContainer'),
-    connect(({ page: { backgroundColor } }) => ({ backgroundColor })),
-    withBricks([{ pckg: '@modular-toolkit/demo-module', path: 'modules.hackerNews' }]),
+    connect(),
     withHandlers({
-        changeBackgroundColor: ({ dispatch }) => () => dispatch(changeBackgroundColor('lime'))
+        changeColor: ({ dispatch }) => () => dispatch(changeColor(...getColors()))
     })
 );
 
