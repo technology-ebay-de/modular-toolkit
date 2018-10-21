@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import createInitialState from './createInitialState';
-import reducer from './rootReducer';
+import reducer from './reducer';
 import hackerNews from '@modular-toolkit/demo-module';
 import gists from '@modular-toolkit/other-demo-module';
 import { BrickManager } from '@modular-toolkit/bricks';

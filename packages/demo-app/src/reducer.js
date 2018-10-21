@@ -1,5 +1,5 @@
 import { CHANGE_BACKGROUND_COLOR } from './actions';
-import { combineReducers } from 'redux';
+import { combineReducers } from '@modular-toolkit/bricks';
 
 export default combineReducers({
     page(state = {}, action = {}) {
