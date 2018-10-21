@@ -1,4 +1,4 @@
-import { addValueByDottedPath, walkObject, getValueByDottedPath, filterObject, deepMerge } from '.';
+import { addValueByDottedPath, walkObject, getValueByDottedPath, filterObject, mergeObjects } from '.';
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
 
 const addReducer = Symbol(
@@ -47,6 +47,8 @@ export default class {
         this[saveReducer](storePath, reducer);
 
         this.store.replaceReducer((state = {}, action) => {
+            // console.log('[PH_LOG] ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ', action.type);
+            // console.log(`[PH_LOG] state\n${JSON.stringify(state, null, 4)}`); // PH_TODO
             const stateForInitialReducer = filterObject(state, this.initialStateProps);
             let stateAfterInitialReduction = this.initialReducer(stateForInitialReducer, action);
             let hasChanges = stateForInitialReducer !== stateAfterInitialReduction;
@@ -55,7 +57,7 @@ export default class {
             // running through the initial reducer (i.e. the one the Redux store was
             // created with), it will kick out the state from the reducers added later
             // stateAfterInitialReduction = { ...state, ...stateAfterInitialReduction };
-            stateAfterInitialReduction = deepMerge(state, stateAfterInitialReduction);
+            stateAfterInitialReduction = mergeObjects(state, stateAfterInitialReduction);
 
             let finalState = { ...stateAfterInitialReduction };
             walkObject(stateAfterInitialReduction, (currentSubState, path) => {
@@ -87,7 +89,7 @@ export default class {
             switch (action.type) {
                 case PREP_STATE:
                     return {
-                        ...addValueByDottedPath(state, action.storePath, {})
+                        ...addValueByDottedPath(state, action.storePath, {}, false)
                     };
                 default:
                     return reducer(state, action);

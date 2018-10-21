@@ -1,77 +1,60 @@
 import addValueByDottedPath from './addValueByDottedPath';
 
-test.each([
+// prettier-ignore
+const testCases = [
     [
-        {
-            argh: {}
-        },
+        { argh: {} },
         'argh',
-        {
-            argh: 'ARGH'
-        },
-        {
-            argh: {
-                argh: 'ARGH'
-            }
-        }
+        { argh: 'ARGH' },
+        undefined,
+        { argh: { argh: 'ARGH' } }
     ],
     [
         {},
         'bla.blub',
         'DUDEL',
-        {
-            bla: {
-                blub: 'DUDEL'
-            }
-        }
+        undefined,
+        { bla: { blub: 'DUDEL' } }
     ],
     [
         {},
         'bla.dazwischen.blub',
         'DUDEL',
-        {
-            bla: {
-                dazwischen: {
-                    blub: 'DUDEL'
-                }
-            }
-        }
+        undefined,
+        { bla: { dazwischen: { blub: 'DUDEL' } } }
     ],
     [
-        {
-            bla: {
-                hamwaschon: 'ham wa schon'
-            }
-        },
+        { bla: { hamwaschon: 'ham wa schon' } },
         'bla.dazwischen.blub',
         'DUDEL',
-        {
-            bla: {
-                dazwischen: {
-                    blub: 'DUDEL'
-                },
-                hamwaschon: 'ham wa schon'
-            }
-        }
+        undefined,
+        { bla: { dazwischen: { blub: 'DUDEL' }, hamwaschon: 'ham wa schon' } }
     ],
     [
-        {
-            bla: {
-                hamwaschon: 'ham wa schon'
-            }
-        },
+        { bla: { hamwaschon: 'ham wa schon' } },
         'bla.dazwischen.blub',
         'DUDEL',
-        {
-            bla: {
-                dazwischen: {
-                    blub: 'DUDEL'
-                },
-                hamwaschon: 'ham wa schon'
-            }
-        }
+        undefined,
+        { bla: { dazwischen: { blub: 'DUDEL' }, hamwaschon: 'ham wa schon' } }
+    ],
+    [
+        { bla: { blub: 'BLUB' } },
+        'bla.blub',
+        'BALUBB!',
+        undefined,
+        { bla: { blub: 'BALUBB!' } }
+    ],
+    [
+        { bla: { blub: 'BLUB' } },
+        'bla.blub',
+        'BALUBB!',
+        false,
+        { bla: { blub: 'BLUB' } }
     ]
-])(
-    'When my object is %j and my path is %s and my value is %j, the result of calling addValueByDottedPath is %j',
-    (object, path, value, expected) => expect(addValueByDottedPath(object, path, value)).toEqual(expected)
+]
+test.each(testCases)(
+    'When my object is %j and my path is %s, my value is %j and the overwrite flag is %p, ' +
+        'the result of calling addValueByDottedPath is %j',
+    (object, path, value, overwrite, expected) =>
+        expect(addValueByDottedPath(object, path, value, overwrite)).toEqual(expected)
 );
