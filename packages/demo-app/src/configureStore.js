@@ -4,7 +4,7 @@ import createInitialState from './createInitialState';
 import reducer from './rootReducer';
 import hackerNews from '@modular-toolkit/demo-module';
 import gists from '@modular-toolkit/other-demo-module';
-import { BrickManager } from './utils';
+import { BrickManager } from '@modular-toolkit/bricks';
 
 const initialState = createInitialState();
 

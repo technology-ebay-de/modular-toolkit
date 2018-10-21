@@ -1,4 +1,4 @@
-import { addValueByDottedPath, walkObject, getValueByDottedPath, filterObject, mergeObjects } from '.';
+import { addValueByDottedPath, walkObject, getValueByDottedPath, filterObject, mergeObjects } from './utils';
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
 
 const addReducer = Symbol(
