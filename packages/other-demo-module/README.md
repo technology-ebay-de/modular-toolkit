@@ -1,11 +1,11 @@
 # other-demo-module
 
-This is another small demo module that can be used to display the latest items from [Hacker News](https://news.ycombinator.com) 
+This is another small demo module that can be used to display the latest items from [Gist](https://gist.github.com) 
 on a web page.
 
 ## Installation
 
-    npm install --save @modular-toolkit/demo-module
+    npm install --save @modular-toolkit/other-demo-module
 
 ## Usage
 
