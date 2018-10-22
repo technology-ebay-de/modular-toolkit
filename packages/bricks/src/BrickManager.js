@@ -47,8 +47,6 @@ export default class {
         this[saveReducer](storePath, reducer);
 
         this.store.replaceReducer((state = {}, action) => {
-            // console.log('[PH_LOG] ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ', action.type);
-            // console.log(`[PH_LOG] state\n${JSON.stringify(state, null, 4)}`); // PH_TODO
             const stateForInitialReducer = filterObject(state, this.initialStateProps);
             let stateAfterInitialReduction = this.initialReducer(stateForInitialReducer, action);
             let hasChanges = stateForInitialReducer !== stateAfterInitialReduction;
