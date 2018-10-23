@@ -1,3 +1,5 @@
+![eBay Tech Logo](ebay-tech-logo.png "eBay Tech Logo")
+
 # modular-toolkit
 
 Tools for composing React applications from decoupled modules.
