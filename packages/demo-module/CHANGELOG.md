@@ -1,6 +1,6 @@
 # Changelog
 
-## 6.0.0 / 22 Oct 2018
+## 6.0.0 / 23 Oct 2018
 
 **Breaking:**
 
