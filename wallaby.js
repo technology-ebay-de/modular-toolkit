@@ -1,6 +1,6 @@
 const path = require('path');
 
-const packages = ['hocs', 'selectors'];
+const packages = ['hocs', 'selectors', 'bricks'];
 
 module.exports = wallaby => {
     addPackagesToNodePath(wallaby);

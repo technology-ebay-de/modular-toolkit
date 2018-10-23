@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When I walk an object the provided callback is called correctly 1`] = `
+Array [
+  Array [
+    Object {
+      "grault": Object {
+        "fizz": null,
+        "rapante": "RAPANTE",
+      },
+    },
+    "argh",
+  ],
+  Array [
+    Object {
+      "fizz": null,
+      "rapante": "RAPANTE",
+    },
+    "argh.grault",
+  ],
+]
+`;

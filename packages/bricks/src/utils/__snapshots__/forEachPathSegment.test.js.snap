@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When I call “forEachPathSegment” with path foo, the callback is called correctly 1`] = `
+Array [
+  Array [
+    "foo",
+    true,
+  ],
+]
+`;
+
+exports[`When I call “forEachPathSegment” with path foo.bar, the callback is called correctly 1`] = `
+Array [
+  Array [
+    "foo",
+    false,
+  ],
+  Array [
+    "bar",
+    true,
+  ],
+]
+`;
+
+exports[`When I call “forEachPathSegment” with path foo.bar.bux, the callback is called correctly 1`] = `
+Array [
+  Array [
+    "foo",
+    false,
+  ],
+  Array [
+    "bar",
+    false,
+  ],
+  Array [
+    "bux",
+    true,
+  ],
+]
+`;

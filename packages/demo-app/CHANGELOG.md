@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.0.0 / 22 Oct 2018
+
+* Using BricksManager
+
 ## 5.0.3 / 17 Oct 2018
 
 * Dependency update, now using demo-module 5.0.1

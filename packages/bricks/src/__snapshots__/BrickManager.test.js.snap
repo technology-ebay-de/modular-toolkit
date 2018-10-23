@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When I create a brick manager and I install a Brick the reducer is stored 1`] = `
+Object {
+  "bricks": Object {
+    "fasel": [Function],
+  },
+}
+`;
+
+exports[`When I create a brick manager and I install a brick with a reducer with a complex store path and I dispatch an action for the complex store path reducer and I dispatch a different action the Redux state is correct 1`] = `
+Object {
+  "bricks": Object {
+    "fasel": Object {
+      "basel": "COOKIE",
+    },
+  },
+}
+`;
+
+exports[`When I create a brick manager and I install a brick with a reducer with a complex store path and I dispatch an action for the complex store path reducer and I dispatch and action for the root reducer the Redux state is correct 1`] = `
+Object {
+  "bricks": Object {
+    "fasel": Object {
+      "basel": "BASEL",
+    },
+  },
+  "thud": "THUD",
+}
+`;
+
+exports[`When I create a brick manager and I install a brick with a reducer with a complex store path and I dispatch an action for the complex store path reducer the Redux state is correct 1`] = `
+Object {
+  "bricks": Object {
+    "fasel": Object {
+      "basel": "BASEL",
+    },
+  },
+}
+`;
+
+exports[`When I create a brick manager and I install a brick with a reducer with a complex store path and I dispatch and action for the root reducer the Redux state is correct 1`] = `
+Object {
+  "bricks": Object {
+    "fasel": Object {},
+  },
+  "thud": "THUD",
+}
+`;
+
+exports[`When I create a brick manager and I install a brick with a reducer with a complex store path and I install another brick with a reducer with a complex store path and I dispatch an action for the first reducer I added the Redux state is correct 1`] = `
+Object {
+  "bricks": Object {
+    "fasel": Object {
+      "basel": "BASEL",
+    },
+    "xyzzy": Object {},
+  },
+}
+`;
+
+exports[`When I create a brick manager and I install a brick with a reducer with a complex store path and I install another brick with a reducer with a complex store path and I dispatch an action for the second reducer I added the Redux state is correct 1`] = `
+Object {
+  "bricks": Object {
+    "fasel": Object {},
+    "xyzzy": Object {
+      "payload": "hey ho let's go!",
+    },
+  },
+}
+`;
+
+exports[`When I create a brick manager and I install a brick with a reducer with a simple store path and I dispatch an action for the simple store path reducer the Redux state is correct 1`] = `
+Object {
+  "argh": Object {
+    "argh": "ARGH",
+  },
+}
+`;
+
+exports[`When I create a brick manager and I install two Bricks the reducers of both bricks are stored 1`] = `
+Object {
+  "bricks": Object {
+    "fasel": [Function],
+    "xyzzy": [Function],
+  },
+}
+`;

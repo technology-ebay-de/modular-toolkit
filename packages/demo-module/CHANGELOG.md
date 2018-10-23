@@ -1,6 +1,12 @@
 # Changelog
 
-## 5.0.2 / 17 Oct 2018
+## 6.0.0 / 22 Oct 2018
+
+**Breaking:**
+
+Changed root module imports and exports for usage with new BrickManager.
+
+## 5.0.3 / 17 Oct 2018
 
 **Breaking:**
 
