@@ -6,6 +6,8 @@ module.exports = {
         libraryTarget: 'commonjs2'
     },
     externals: {
+        react: 'react',
+        'prop-types': 'prop-types',
         reselect: 'reselect',
         'redux-saga/effects': 'redux-saga/effects'
     },
