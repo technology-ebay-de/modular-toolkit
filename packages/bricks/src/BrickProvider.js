@@ -12,7 +12,7 @@ const BrickProvider = ({ store, reducer, sagaMiddleware, children }) => (
 BrickProvider.propTypes = {
     store: PropTypes.object.isRequired,
     reducer: PropTypes.func,
-    sagaMiddleware: PropTypes.object.isRequired,
+    sagaMiddleware: PropTypes.func.isRequired,
     children: PropTypes.node
 };
 
