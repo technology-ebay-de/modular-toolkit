@@ -22,6 +22,7 @@
     "@modular-toolkit/selectors": "^3.0.1"
   },
   "peerDependencies": {
+    "react": ">=16.2.0 <17.0.0",
     "redux-saga": ">=0.15.0 <1.0.0",
     "reselect": ">=3.0.0 <4.0.0"
   },
@@ -30,6 +31,7 @@
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-object-rest-spread": "~6.26.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   }
