@@ -23,7 +23,7 @@ Here is an example taken from the [demo app](../demo-app) that shows how it is u
 
 _demo-app/src/configureStore.js_
 ```javascript
-import { applyMiddleware, createStore, compose } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import createInitialState from './createInitialState';
 import reducer from './reducer';
