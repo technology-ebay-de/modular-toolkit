@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When I combine some reducers and I call the combined reducer with an action for the first reducer the result is correct 1`] = `
+Object {
+  "argh": "argh",
+  "baz": "BAZ!!!",
+}
+`;
+
+exports[`When I combine some reducers and I call the combined reducer with an action for the second reducer the result is correct 1`] = `
+Object {
+  "argh": "ARGH!!!",
+  "baz": "baz",
+}
+`;
