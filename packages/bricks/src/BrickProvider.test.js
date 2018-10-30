@@ -19,13 +19,13 @@ jest.mock(
 );
 
 describe('When I mount a brick provider component', () => {
-    beforeEach(() => {
+    beforeEach(() =>
         mount(
             <BrickProvider sagaMiddleware={sagaMiddleware} store={store} reducer={reducer}>
                 <BrickManagerContext.Consumer>{consumer}</BrickManagerContext.Consumer>
             </BrickProvider>
-        );
-    });
+        )
+    );
     describe('a Brick Manager', () =>
         it('is instantiated with the provided saga middleware, store and reducer', () =>
             expect(mockBrickManagerConstructor).toBeCalledWith({
