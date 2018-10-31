@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.2 / 31 Oct 2018
+
+Reduced CommonJS bundle size, _redux-saga_ had been accidentally included in the bundle
+
 ## 3.0.0 / 17 Oct 2018
 
 Removed Sinon and Chai from unit tests

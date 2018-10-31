@@ -6,12 +6,8 @@ module.exports = {
         libraryTarget: 'commonjs2'
     },
     externals: {
-        reselect: {
-            commonjs2: 'reselect'
-        },
-        'redux-saga': {
-            commonjs2: 'redux-saga'
-        }
+        reselect: 'reselect',
+        'redux-saga/effects': 'redux-saga/effects'
     },
     module: {
         rules: [
