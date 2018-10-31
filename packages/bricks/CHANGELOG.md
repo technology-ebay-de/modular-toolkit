@@ -2,6 +2,7 @@
 
 ## 1.1.0 / 1 Nov 2018
 
+* Peer dependency of React at least version 16.3.0 required
 * Added [BrickProvider](src/BrickProvider.js) that allows to a a Brick Manager instance to nested components
 * Added [withBrick](src/withBrick.js) and [withBricks](src/withBricks.js) functions that create higher-order
   components (HoCs) that can add one or more bricks to the parent application's Redux setup through the
