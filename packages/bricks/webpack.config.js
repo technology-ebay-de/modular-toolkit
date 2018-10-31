@@ -5,6 +5,10 @@ module.exports = {
         filename: 'index.js',
         libraryTarget: 'commonjs2'
     },
+    externals: {
+        reselect: 'reselect',
+        'redux-saga/effects': 'redux-saga/effects'
+    },
     module: {
         rules: [
             {

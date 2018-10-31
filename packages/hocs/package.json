@@ -25,7 +25,9 @@
   "peerDependencies": {
     "prop-types": "<16.0.0",
     "react-redux": ">=5.0.0 <6.0.0",
-    "recompose": ">=0.26.0 <1.0.0"
+    "recompose": ">=0.26.0 <1.0.0",
+    "redux-saga": ">=0.15.0 <1.0.0",
+    "reselect": ">=3.0.0 <4.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

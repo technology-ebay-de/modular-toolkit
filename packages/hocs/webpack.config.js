@@ -6,15 +6,11 @@ module.exports = {
         libraryTarget: 'commonjs2'
     },
     externals: {
-        'react-redux': {
-            commonjs2: 'react-redux'
-        },
-        'prop-types': {
-            commonjs2: 'prop-types'
-        },
-        recompose: {
-            commonjs2: 'recompose'
-        }
+        'react-redux': 'react-redux',
+        'prop-types': 'prop-types',
+        recompose: 'recompose',
+        reselect: 'reselect',
+        'redux-saga/effects': 'redux-saga/effects'
     },
     module: {
         rules: [
