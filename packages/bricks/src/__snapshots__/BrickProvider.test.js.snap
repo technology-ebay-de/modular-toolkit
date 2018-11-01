@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When I mount a brick provider component the consumer wrapped by the brick provider component has access to the brick manager 1`] = `
+Array [
+  BrickManager {},
+]
+`;

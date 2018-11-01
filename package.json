@@ -8,11 +8,10 @@
     "precommit": "lint-staged",
     "postinstall": "lerna bootstrap",
     "publish": "lerna publish ${@:1}",
-    "publish-beta": "lerna publish --npm-tag beta",
-    "publish-beta-patch": "lerna publish prepatch --npm-tag beta",
-    "publish-beta-minor": "lerna publish preminor --npm-tag beta",
-    "publish-beta-major": "lerna publish premajor --npm-tag beta",
-    "undo": "git reset --hard HEAD~1 && git tag -d $(git log --date-order --tags --simplify-by-decoration --pretty=format:'%d' | head -1 | tr -d '()' | sed 's/,* tag://g')"
+    "publish-beta": "lerna publish prerelease --preid beta --npm-tag beta",
+    "publish-beta-patch": "lerna publish prepatch --preid beta --npm-tag beta",
+    "publish-beta-minor": "lerna publish preminor --preid beta --npm-tag beta",
+    "publish-beta-major": "lerna publish premajor --preid beta --npm-tag beta"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
@@ -80,8 +79,8 @@
     "lint-staged": "^6.1.0",
     "prettier": "^1.10.2",
     "prop-types": "^15.6.0",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
     "react-redux": "^5.0.6",
     "react-test-renderer": "^16.2.0",
     "recompose": "^0.26.0",
