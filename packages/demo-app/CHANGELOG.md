@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.1.0 / 1 Nov 2018
+
+* Using BricksProvider
+
 ## 6.0.0 / 23 Oct 2018
 
 * Using BricksManager
