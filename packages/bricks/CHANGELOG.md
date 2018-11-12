@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 / 12 Nov 2018
+
+Bug fix – in some setups, the browser console showed error about a component changing state during render when 
+changing routes with React Router. This was caused by the `withBricks` or `withBrick` HoC installing the same
+bricks multiple times. This was fixed.
+
 ## 1.1.0 / 1 Nov 2018
 
 * Peer dependency of React at least version 16.3.0 required
