@@ -79,7 +79,8 @@ describe('When I create a brick manager', () => {
             brickManager.installBricks({
                 'bricks.fasel': { reducer, saga, selectors },
                 'bricks.xyzzy': { reducer: otherReducer, saga: otherSaga, selectors: otherSelectors }
-            }));
+            })
+        );
         describe('the selectors of the first brick', () =>
             it('are registered for use with global state', () =>
                 expect(registerSelectorsForUseWithGlobalState).toHaveBeenCalledWith('bricks.fasel', selectors)));
