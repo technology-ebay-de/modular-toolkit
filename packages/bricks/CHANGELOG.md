@@ -6,6 +6,8 @@
   changing routes with React Router. This was caused by the `withBricks` or `withBrick` HoC installing the same
   bricks multiple times. This was fixed.
 * Fixed vulnerability from `merge` module found by npm audit
+* Bugfix in utility function – `getValueByDottedPath` returned parent element if queried for non-existing child 
+  (now correctly returns null)
 
 ## 1.1.0 / 1 Nov 2018
 
