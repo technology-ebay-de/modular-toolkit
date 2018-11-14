@@ -1,4 +1,4 @@
-import BrickManager from './BrickManager';
+import BrickManager, { addReducer } from './BrickManager';
 import { createStore } from 'redux';
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
 
@@ -157,6 +157,19 @@ describe('When I create a brick manager', () => {
                 });
             });
         });
+    });
+    describe('and I try to install the same Brick twice', () => {
+        let addReducerSpy;
+        beforeEach(() => {
+            addReducerSpy = jest.spyOn(brickManager, addReducer);
+            brickManager.installBrick('bricks.gnarg', { reducer, saga, selectors });
+            brickManager.installBrick('bricks.gnarg', { reducer, saga, selectors });
+        });
+        describe('the selectors', () =>
+            it('are registered for use with global state only once', () =>
+                expect(registerSelectorsForUseWithGlobalState).toHaveBeenCalledTimes(1)));
+        describe('the saga', () => it('is run only once', () => expect(sagaMiddleware.run).toHaveBeenCalledTimes(1)));
+        describe('the reducer', () => it('is stored only once', () => expect(addReducerSpy).toHaveBeenCalledTimes(1)));
     });
     afterEach(() => jest.clearAllMocks());
 });

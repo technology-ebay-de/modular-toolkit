@@ -51,6 +51,16 @@ const testCases = [
         { bla: { di: { blub: 'BLUB' } }, gna: 'GNA' },
         'bla.di',
         { blub: 'BLUB' },
+    ],
+    [
+        { bla: () => {} },
+        'bla.di',
+        null
+    ],
+    [
+        { bla: 'bla' },
+        'bla.di',
+        null
     ]
 ];
 

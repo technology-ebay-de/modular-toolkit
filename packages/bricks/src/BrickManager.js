@@ -1,21 +1,31 @@
 import { addValueByDottedPath, walkObject, getValueByDottedPath, filterObject, mergeObjects } from './utils';
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
 
-const addReducer = Symbol(
+/* exported for testing only */
+export const addReducer = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'addReducer (private method of BrickManager)'
 );
+
 const addSelectors = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'addSelectors (private method of BrickManager)'
 );
+
 const addSaga = Symbol(process.env.NODE_ENV === 'production' ? undefined : 'addSaga (private method of BrickManager)');
+
 const createInitialReducer = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'createInitialReducer (private method of BrickManager)'
 );
+
 const saveReducer = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'saveReducer (private method of BrickManager)'
 );
+
 const loadReducer = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'loadReducer (private method of BrickManager)'
+);
+
+const hasReducer = Symbol(
+    process.env.NODE_ENV === 'production' ? undefined : 'hasReducer (private method of BrickManager)'
 );
 
 const PREP_STATE = 'modular-toolkit/PREP_STATE';
@@ -37,6 +47,9 @@ export default class {
     }
 
     installBrick(storePath, { reducer, saga, selectors }) {
+        if (this[hasReducer](storePath)) {
+            return;
+        }
         this[addReducer](storePath, reducer);
         this[addSelectors](storePath, selectors);
         this[addSaga](saga);
@@ -101,5 +114,9 @@ export default class {
 
     [loadReducer](storePath) {
         return getValueByDottedPath(this.reducers, storePath);
+    }
+
+    [hasReducer](storePath) {
+        return this[loadReducer](storePath) !== null;
     }
 }

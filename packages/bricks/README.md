@@ -85,6 +85,9 @@ This context provider wrapper allows you to pass a `BrickManager` instance to de
 the [React context API](https://reactjs.org/docs/context.html), similar to the Provider of
 [react-redux](https://redux.js.org/basics/usagewithreact#passing-the-store).
 
+**Important:** Make sure the brick provider is _inside_ the Redux `Provider` (as shown in the example below), but always
+_around_ all other components, _especially_ `BrowserRouter` from React Router.
+
 This example shows how to initialize Redux for your application, along with the `BrickProvider`:
 
 ```javascript
