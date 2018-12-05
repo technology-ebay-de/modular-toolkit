@@ -1,4 +1,11 @@
-import { addValueByDottedPath, walkObject, getValueByDottedPath, filterObject, mergeObjects } from './utils';
+import {
+    addValueByDottedPath,
+    addValueByDottedPaths,
+    walkObject,
+    getValueByDottedPath,
+    filterObject,
+    mergeObjects
+} from './utils';
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
 
 /* exported for testing only */
@@ -28,6 +35,10 @@ const hasReducer = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'hasReducer (private method of BrickManager)'
 );
 
+const prepareState = Symbol(
+    process.env.NODE_ENV === 'production' ? undefined : 'prepareState (private method of BrickManager)'
+);
+
 const PREP_STATE = 'modular-toolkit/PREP_STATE';
 
 export default class {
@@ -41,12 +52,19 @@ export default class {
     }
 
     installBricks(bricks) {
-        for (const [storePath, module] of Object.entries(bricks)) {
-            this.installBrick(storePath, module);
+        this[prepareState](Object.keys(bricks));
+        for (const [storePath, { reducer, selectors, saga }] of Object.entries(bricks)) {
+            if (this[hasReducer](storePath)) {
+                continue;
+            }
+            this[addReducer](storePath, reducer);
+            this[addSelectors](storePath, selectors);
+            this[addSaga](saga);
         }
     }
 
     installBrick(storePath, { reducer, saga, selectors }) {
+        this[prepareState]([storePath]);
         if (this[hasReducer](storePath)) {
             return;
         }
@@ -55,8 +73,11 @@ export default class {
         this[addSaga](saga);
     }
 
+    [prepareState](storePaths) {
+        this.store.dispatch({ type: PREP_STATE, storePaths });
+    }
+
     [addReducer](storePath, reducer) {
-        this.store.dispatch({ type: PREP_STATE, storePath });
         this[saveReducer](storePath, reducer);
 
         this.store.replaceReducer((state = {}, action) => {
@@ -100,7 +121,7 @@ export default class {
             switch (action.type) {
                 case PREP_STATE:
                     return {
-                        ...addValueByDottedPath(state, action.storePath, {}, false)
+                        ...addValueByDottedPaths(state, action.storePaths, {}, false)
                     };
                 default:
                     return reducer(state, action);
