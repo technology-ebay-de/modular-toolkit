@@ -1,16 +1,9 @@
-import {
-    addValueByDottedPath,
-    addValueByDottedPaths,
-    walkObject,
-    getValueByDottedPath,
-    filterObject,
-    mergeObjects
-} from './utils';
+import { addValueByDottedPath, getValueByDottedPath, mergeReducers } from './utils';
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
 
 /* exported for testing only */
-export const addReducer = Symbol(
-    process.env.NODE_ENV === 'production' ? undefined : 'addReducer (private method of BrickManager)'
+export const replaceReducer = Symbol(
+    process.env.NODE_ENV === 'production' ? undefined : 'replaceReducer (private method of BrickManager)'
 );
 
 const addSelectors = Symbol(
@@ -18,10 +11,6 @@ const addSelectors = Symbol(
 );
 
 const addSaga = Symbol(process.env.NODE_ENV === 'production' ? undefined : 'addSaga (private method of BrickManager)');
-
-const createInitialReducer = Symbol(
-    process.env.NODE_ENV === 'production' ? undefined : 'createInitialReducer (private method of BrickManager)'
-);
 
 const saveReducer = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'saveReducer (private method of BrickManager)'
@@ -35,77 +24,39 @@ const hasReducer = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'hasReducer (private method of BrickManager)'
 );
 
-const prepareState = Symbol(
-    process.env.NODE_ENV === 'production' ? undefined : 'prepareState (private method of BrickManager)'
-);
-
-const PREP_STATE = 'modular-toolkit/PREP_STATE';
-
 export default class {
     constructor({ store, reducer = s => s, sagaMiddleware }) {
         this.store = store;
-        this.initialReducer = this[createInitialReducer](reducer);
-        this.initialStateProps = Object.keys(store.getState());
-        this.store.replaceReducer(this.initialReducer);
-        this.reducers = {};
+        this.originalReducer = reducer;
+        this.additionalReducers = {};
         this.sagaMiddleware = sagaMiddleware;
     }
 
+    installBrick(storePath, brick) {
+        this.installBricks({ [storePath]: brick });
+    }
+
     installBricks(bricks) {
-        this[prepareState](Object.keys(bricks));
-        for (const [storePath, { reducer, selectors, saga }] of Object.entries(bricks)) {
-            if (this[hasReducer](storePath)) {
-                continue;
-            }
-            this[addReducer](storePath, reducer);
-            this[addSelectors](storePath, selectors);
-            this[addSaga](saga);
-        }
-    }
-
-    installBrick(storePath, { reducer, saga, selectors }) {
-        this[prepareState]([storePath]);
-        if (this[hasReducer](storePath)) {
-            return;
-        }
-        this[addReducer](storePath, reducer);
-        this[addSelectors](storePath, selectors);
-        this[addSaga](saga);
-    }
-
-    [prepareState](storePaths) {
-        this.store.dispatch({ type: PREP_STATE, storePaths });
-    }
-
-    [addReducer](storePath, reducer) {
-        this[saveReducer](storePath, reducer);
-
-        this.store.replaceReducer((state = {}, action) => {
-            const stateForInitialReducer = filterObject(state, this.initialStateProps);
-            let stateAfterInitialReduction = this.initialReducer(stateForInitialReducer, action);
-            let hasChanges = stateForInitialReducer !== stateAfterInitialReduction;
-
-            // this is important – if we don't merge the state with the state after
-            // running through the initial reducer (i.e. the one the Redux store was
-            // created with), it will kick out the state from the reducers added later
-            // stateAfterInitialReduction = { ...state, ...stateAfterInitialReduction };
-            stateAfterInitialReduction = mergeObjects(state, stateAfterInitialReduction);
-
-            let finalState = { ...stateAfterInitialReduction };
-            walkObject(stateAfterInitialReduction, (currentSubState, path) => {
-                const currReducer = this[loadReducer](path);
-                if (typeof currReducer !== 'function') {
-                    return;
-                }
-                const nextSubState = currReducer(currentSubState, action);
-                if (nextSubState !== currentSubState) {
-                    finalState = addValueByDottedPath(finalState, path, nextSubState);
-                    hasChanges = true;
-                }
+        let changed = false;
+        Object.entries(bricks)
+            .filter(([storePath]) => !this[hasReducer](storePath))
+            .forEach(([storePath, { reducer, selectors, saga }]) => {
+                changed = true;
+                this[saveReducer](storePath, reducer);
+                this[addSelectors](storePath, selectors);
+                this[addSaga](saga);
             });
+        if (changed) {
+            this[replaceReducer]();
+        }
+    }
 
-            return hasChanges ? finalState : state;
-        });
+    [replaceReducer]() {
+        this.store.replaceReducer(mergeReducers(this.originalReducer, this.additionalReducers));
+    }
+
+    [saveReducer](storePath, reducer) {
+        this.additionalReducers = addValueByDottedPath(this.additionalReducers, storePath, reducer);
     }
 
     [addSelectors](storePath, selectors) {
@@ -116,25 +67,8 @@ export default class {
         this.sagaMiddleware.run(saga);
     }
 
-    [createInitialReducer](reducer) {
-        return (state = {}, action) => {
-            switch (action.type) {
-                case PREP_STATE:
-                    return {
-                        ...addValueByDottedPaths(state, action.storePaths, {}, false)
-                    };
-                default:
-                    return reducer(state, action);
-            }
-        };
-    }
-
-    [saveReducer](storePath, reducer) {
-        this.reducers = addValueByDottedPath(this.reducers, storePath, reducer);
-    }
-
     [loadReducer](storePath) {
-        return getValueByDottedPath(this.reducers, storePath);
+        return getValueByDottedPath(this.additionalReducers, storePath);
     }
 
     [hasReducer](storePath) {

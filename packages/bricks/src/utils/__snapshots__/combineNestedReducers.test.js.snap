@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When I combine some nested reducers and I create a store with the combined reducers and I dispatch an action for each of the combined nested reducers the resulting state is correct 1`] = `
+Object {
+  "corge": Object {
+    "bar": Object {
+      "value": "bar",
+    },
+    "xyzzy": Object {
+      "baz": Object {
+        "value": "baz",
+      },
+      "bazong": Object {
+        "value": "bazong",
+      },
+    },
+  },
+  "foo": Object {
+    "value": "foo",
+  },
+}
+`;
+
+exports[`When I combine some nested reducers and I create a store with the combined reducers the initial state is correct 1`] = `
+Object {
+  "corge": Object {
+    "bar": Object {},
+    "xyzzy": Object {
+      "baz": Object {},
+      "bazong": Object {},
+    },
+  },
+  "foo": Object {},
+}
+`;
