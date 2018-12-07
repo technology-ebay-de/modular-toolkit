@@ -8,14 +8,14 @@ const store = {};
 const reducer = jest.fn();
 const storePath = 'STORE-PATH';
 const brick = 'BRICK';
-const mockInstallBrick = jest.fn();
+const mockInstallBricks = jest.fn();
 
 jest.mock(
     './BrickManager',
     () =>
         class BrickManager {
-            installBrick(...args) {
-                mockInstallBrick(...args);
+            installBricks(...args) {
+                mockInstallBricks(...args);
             }
         }
 );
@@ -35,6 +35,6 @@ describe('When I mount a component that is wrapped with a Brick', () => {
     });
     describe("the Brick Manager's “installBrick” method", () =>
         it('is called with the provided store path and brick module', () =>
-            expect(mockInstallBrick).toBeCalledWith(storePath, brick)));
+            expect(mockInstallBricks).toBeCalledWith({ [storePath]: brick })));
     afterEach(() => jest.clearAllMocks());
 });

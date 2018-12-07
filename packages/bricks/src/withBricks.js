@@ -1,11 +1,16 @@
 import React from 'react';
 import BrickManagerContext from './BrickManagerContext';
+import BrickInstaller from './BrickInstaller';
 
-export default bricks => Component => props => (
+export default bricks => WrappedComponent => props => (
     <BrickManagerContext.Consumer>
-        {brickManager => {
-            brickManager.installBricks(bricks);
-            return <Component {...props} />;
-        }}
+        {brickManager => (
+            <BrickInstaller
+                brickManager={brickManager}
+                bricks={bricks}
+                WrappedComponent={WrappedComponent}
+                wrappedComponentProps={props}
+            />
+        )}
     </BrickManagerContext.Consumer>
 );
