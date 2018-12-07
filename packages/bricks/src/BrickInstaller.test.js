@@ -14,8 +14,8 @@ MyComponent.propTypes = {
 
 jest.mock('./BrickManager');
 
-const brickManager = new BrickManager();
-const bricks = Symbol('bricks');
+const brickManager = new BrickManager({});
+const bricks = { foo: 'bar' };
 
 describe('When I mount a component that is wrapped with a BrickInstaller', () => {
     let component;

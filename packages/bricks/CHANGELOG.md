@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.3 / 7 Dec 2018
+
+* Bug fix issue #8 – updated during render warning and infinite update loops
+* Refactoring of `BrickManager`
+
 ## 1.1.2 / 14 Nov 2018
 
 * Bug fix – in some setups, the browser console showed error about a component changing state during render when 
