@@ -4,6 +4,7 @@
   "description": "Higher order components (HoCs) for connecting modules",
   "esnext": "index-esnext.js",
   "main": "index.js",
+  "sideEffects": false,
   "scripts": {
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"

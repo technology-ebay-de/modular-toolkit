@@ -4,6 +4,7 @@
   "description": "Utility functions for connecting selectors for a state object to a global Redux state",
   "esnext": "index-esnext.js",
   "main": "index.js",
+  "sideEffects": false,
   "scripts": {
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"

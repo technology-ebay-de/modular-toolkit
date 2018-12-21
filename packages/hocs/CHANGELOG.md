@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.0.3 / 21 Dec 2018
+
+* Added `sideEffects: false` configuration to [package.json](package.json) to allow efficient tree shaking with
+  webpack (see [webpack documentation](https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free))
+
 ## 4.0.2 / 31 Oct 2018
 
 Reduced CommonJS bundle size, _redux-saga_ had been accidentally included in the bundle
