@@ -1,5 +1,5 @@
-import { addValueByDottedPath, getValueByDottedPath, mergeReducers } from './utils';
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
+import { addValueByDottedPath, getValueByDottedPath, mergeReducers, resolveStateWithSelectors } from './utils';
 
 /* exported for testing only */
 export const replaceReducer = Symbol(
@@ -40,9 +40,13 @@ export default class {
         let changed = false;
         Object.entries(bricks)
             .filter(([storePath]) => !this[hasReducer](storePath))
-            .forEach(([storePath, { reducer, selectors, saga }]) => {
+            .forEach(([storePath, { reducer, selectors, saga, initialState }]) => {
                 changed = true;
-                this[saveReducer](storePath, reducer);
+                const resolvedInitialState = initialState ? resolveStateWithSelectors(this.store, initialState) : null;
+                const reducerWithInitialState = resolvedInitialState
+                    ? (state = resolvedInitialState, action) => reducer(state, action)
+                    : reducer;
+                this[saveReducer](storePath, reducerWithInitialState);
                 this[addSelectors](storePath, selectors);
                 this[addSaga](saga);
             });
