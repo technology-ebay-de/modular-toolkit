@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.1.3 / 26 Dec 2018
+
+* Update of dependencies with bugfix for installing bricks during render phase (issue #8)
+
 ## 6.1.0 / 1 Nov 2018
 
 * Using BricksProvider

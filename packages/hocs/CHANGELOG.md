@@ -1,6 +1,6 @@
 # Changelog
 
-## 4.0.3 / 21 Dec 2018
+## 4.0.3 / 26 Dec 2018
 
 * Added `sideEffects: false` configuration to [package.json](package.json) to allow efficient tree shaking with
   webpack (see [webpack documentation](https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free))

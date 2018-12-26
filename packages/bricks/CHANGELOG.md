@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.3 / 21 Dec 2018
+## 1.1.3 / 26 Dec 2018
 
 * Bug fix issue #8 – updated during render warning and infinite update loops
 * Refactoring of `BrickManager`
