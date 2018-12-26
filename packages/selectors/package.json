@@ -1,9 +1,10 @@
 {
   "name": "@modular-toolkit/selectors",
-  "version": "3.0.2",
+  "version": "3.0.3-beta.0",
   "description": "Utility functions for connecting selectors for a state object to a global Redux state",
   "esnext": "index-esnext.js",
   "main": "index.js",
+  "sideEffects": false,
   "scripts": {
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"

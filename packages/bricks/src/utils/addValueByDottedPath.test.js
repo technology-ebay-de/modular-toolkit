@@ -58,3 +58,24 @@ test.each(testCases)(
     (object, path, value, overwrite, expected) =>
         expect(addValueByDottedPath(object, path, value, overwrite)).toEqual(expected)
 );
+
+// prettier-ignore
+const throwingTestCases = [
+    [
+        { argh: 'argh' },
+        'argh.barg',
+        'farg',
+        undefined
+    ],
+    [
+        { argh: 'argh' },
+        'argh.barg',
+        'farg',
+        true
+    ]
+]
+test.each(throwingTestCases)(
+    'When my object is %j and my path is %s, my value is %j and the overwrite flag is %p, ' +
+        'calling addValueByDottedPath throws an error',
+    (object, path, value, overwrite) => expect(() => addValueByDottedPath(object, path, value, overwrite)).toThrow()
+);

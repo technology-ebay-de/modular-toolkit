@@ -1,9 +1,10 @@
 {
   "name": "@modular-toolkit/hocs",
-  "version": "4.0.2",
+  "version": "4.0.3-beta.0",
   "description": "Higher order components (HoCs) for connecting modules",
   "esnext": "index-esnext.js",
   "main": "index.js",
+  "sideEffects": false,
   "scripts": {
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +20,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@modular-toolkit/selectors": "^3.0.2",
+    "@modular-toolkit/selectors": "^3.0.3-beta.0",
     "lodash.debounce": "^4.0.8"
   },
   "peerDependencies": {

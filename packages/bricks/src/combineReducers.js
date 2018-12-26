@@ -29,7 +29,7 @@ export default function combineReducers(reducers) {
             const previousStateForKey = state[key];
             const nextStateForKey = reducer(previousStateForKey, action);
             if (typeof nextStateForKey === 'undefined') {
-                throw new Error(`Undefined state for key ${key}, action:`, action);
+                throw new Error(`Undefined state for key ${key}, action ${action.type}`);
             }
             nextState[key] = nextStateForKey;
             hasChanged = hasChanged || nextStateForKey !== previousStateForKey;

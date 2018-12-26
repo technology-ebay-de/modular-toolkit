@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When my original reducer is a combined reducer and I create a store and my additional reducers map contains two nested reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer and I dispatch an action for the first reducer of the combined original reducer the resulting state is correct 1`] = `
+Object {
+  "bar": Object {},
+  "bazong": Object {},
+  "corge": Object {
+    "baz": Object {},
+  },
+  "foo": Object {
+    "value": "foo",
+  },
+}
+`;
+
+exports[`When my original reducer is a combined reducer and I create a store and my additional reducers map contains two nested reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer and I dispatch an action for the nested additional reducer the result is correct 1`] = `
+Object {
+  "bar": Object {},
+  "bazong": Object {},
+  "corge": Object {
+    "baz": Object {
+      "value": "baz",
+    },
+  },
+  "foo": Object {},
+}
+`;
+
+exports[`When my original reducer is a combined reducer and I create a store and my additional reducers map contains two nested reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer and I dispatch an action for the other reducer of the combined original reducer the resulting state is correct 1`] = `
+Object {
+  "bar": Object {},
+  "bazong": Object {
+    "value": "bazong",
+  },
+  "corge": Object {
+    "baz": Object {},
+  },
+  "foo": Object {},
+}
+`;
+
+exports[`When my original reducer is a combined reducer and I create a store and my additional reducers map contains two nested reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer and I dispatch an action for the top additional reducer the result is correct 1`] = `
+Object {
+  "bar": Object {
+    "value": "bar",
+  },
+  "bazong": Object {},
+  "corge": Object {
+    "baz": Object {},
+  },
+  "foo": Object {},
+}
+`;
+
+exports[`When my original reducer is a combined reducer and I create a store and my additional reducers map contains two nested reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer the new state is correct 1`] = `
+Object {
+  "bar": Object {},
+  "bazong": Object {},
+  "corge": Object {
+    "baz": Object {},
+  },
+  "foo": Object {},
+}
+`;
+
+exports[`When my original reducer is a combined reducer and I create a store the initial state is correct 1`] = `
+Object {
+  "bazong": Object {},
+  "foo": Object {},
+}
+`;
+
+exports[`When my original reducer is a simple function and I create a store and my additional reducers map contains just one reducer and I merge original and additional reducers and I replace the store's reducer with the merged reducer and I dispatch an action for the additional reducer the result is correct 1`] = `
+Object {
+  "bar": Object {
+    "value": "bar",
+  },
+}
+`;
+
+exports[`When my original reducer is a simple function and I create a store and my additional reducers map contains just one reducer and I merge original and additional reducers and I replace the store's reducer with the merged reducer and I dispatch an action for the original reducer the resulting state is correct 1`] = `
+Object {
+  "bar": Object {},
+  "value": "foo",
+}
+`;
+
+exports[`When my original reducer is a simple function and I create a store and my additional reducers map contains just one reducer and I merge original and additional reducers and I replace the store's reducer with the merged reducer the new state is correct 1`] = `
+Object {
+  "bar": Object {},
+}
+`;
+
+exports[`When my original reducer is a simple function and I create a store and my additional reducers map contains two nested reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer and I dispatch an action for the nested additional reducer the result is correct 1`] = `
+Object {
+  "bar": Object {},
+  "corge": Object {
+    "baz": Object {
+      "value": "baz",
+    },
+  },
+}
+`;
+
+exports[`When my original reducer is a simple function and I create a store and my additional reducers map contains two nested reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer and I dispatch an action for the original reducer the resulting state is correct 1`] = `
+Object {
+  "bar": Object {},
+  "corge": Object {
+    "baz": Object {},
+  },
+  "value": "foo",
+}
+`;
+
+exports[`When my original reducer is a simple function and I create a store and my additional reducers map contains two nested reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer and I dispatch an action for the top additional reducer the result is correct 1`] = `
+Object {
+  "bar": Object {
+    "value": "bar",
+  },
+  "corge": Object {
+    "baz": Object {},
+  },
+}
+`;
+
+exports[`When my original reducer is a simple function and I create a store and my additional reducers map contains two nested reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer the new state is correct 1`] = `
+Object {
+  "bar": Object {},
+  "corge": Object {
+    "baz": Object {},
+  },
+}
+`;
+
+exports[`When my original reducer is a simple function and I create a store and my additional reducers map contains two reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer and I dispatch an action for the first additional reducer the result is correct 1`] = `
+Object {
+  "bar": Object {
+    "value": "bar",
+  },
+  "baz": Object {},
+}
+`;
+
+exports[`When my original reducer is a simple function and I create a store and my additional reducers map contains two reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer and I dispatch an action for the original reducer the resulting state is correct 1`] = `
+Object {
+  "bar": Object {},
+  "baz": Object {},
+  "value": "foo",
+}
+`;
+
+exports[`When my original reducer is a simple function and I create a store and my additional reducers map contains two reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer and I dispatch an action for the second additional reducer the result is correct 1`] = `
+Object {
+  "bar": Object {},
+  "baz": Object {
+    "value": "baz",
+  },
+}
+`;
+
+exports[`When my original reducer is a simple function and I create a store and my additional reducers map contains two reducers and I merge original and additional reducers and I replace the store's reducer with the merged reducer the new state is correct 1`] = `
+Object {
+  "bar": Object {},
+  "baz": Object {},
+}
+`;
+
+exports[`When my original reducer is a simple function and I create a store the initial state is correct 1`] = `Object {}`;

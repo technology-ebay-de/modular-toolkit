@@ -6,7 +6,7 @@ import BrickProvider from './BrickProvider';
 const sagaMiddleware = jest.fn();
 const store = {};
 const reducer = jest.fn();
-const bricks = 'BRICKS';
+const bricks = { foo: 'bar' };
 const mockInstallBricks = jest.fn();
 
 jest.mock(
