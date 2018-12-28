@@ -1,9 +1,9 @@
-import BrickManager, { replaceReducer } from './BrickManager';
+import BrickManager, { replaceReducer, additionalReducers } from './BrickManager';
 import { createStore } from 'redux';
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
 
 const selectors = 'SELECTORS';
-const otherSelectors = 'OHTER_SELECTORS';
+const otherSelectors = 'OTHER_SELECTORS';
 const saga = 'SAGA';
 const otherSaga = 'OTHER_SAGA';
 
@@ -72,7 +72,8 @@ describe('When I create a brick manager', () => {
             it('are registered for use with global state', () =>
                 expect(registerSelectorsForUseWithGlobalState).toHaveBeenCalledWith('bricks.fasel', selectors)));
         describe('the saga', () => it('is run', () => expect(sagaMiddleware.run).toHaveBeenCalledWith(saga)));
-        describe('the reducer', () => it('is stored', () => expect(brickManager.additionalReducers).toMatchSnapshot()));
+        describe('the reducer', () =>
+            it('is stored', () => expect(brickManager[additionalReducers]).toMatchSnapshot()));
     });
     describe('and I install two Bricks', () => {
         beforeEach(() =>
@@ -84,7 +85,7 @@ describe('When I create a brick manager', () => {
             it('are registered for use with global state', () =>
                 expect(registerSelectorsForUseWithGlobalState).toHaveBeenCalledWith('bricks.fasel', selectors)));
         describe('the reducers of both bricks', () =>
-            it('are stored', () => expect(brickManager.additionalReducers).toMatchSnapshot()));
+            it('are stored', () => expect(brickManager[additionalReducers]).toMatchSnapshot()));
         describe('the saga of the first brick', () =>
             it('is run', () => expect(sagaMiddleware.run).toHaveBeenCalledWith(saga)));
         describe('the selectors of the second brick', () =>
