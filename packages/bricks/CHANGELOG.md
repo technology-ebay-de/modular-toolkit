@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0 / 28 Dec 2018
+
+* Enhancement #10 – allow passing initial state when installing bricks
+* Bug fix: in some cases, the Brick Manager was instantiated by the Brick Provider multiple times, this was fixed
+
 ## 1.1.3 / 26 Dec 2018
 
 * Bug fix issue #8 – updated during render warning and infinite update loops
