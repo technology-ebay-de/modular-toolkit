@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The result of calling resolveStateWithSelectors is correct 1`] = `
+Object {
+  "fasel": Object {
+    "bar": Object {
+      "quux": "QUUX",
+    },
+  },
+  "foo": "FOO",
+}
+`;
