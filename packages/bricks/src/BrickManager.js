@@ -1,9 +1,19 @@
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
-import { addValueByDottedPath, getValueByDottedPath, mergeReducers, resolveStateWithSelectors } from './utils';
+import {
+    addValueByDottedPath,
+    getValueByDottedPath,
+    mergeReducers,
+    resolveStateWithSelectors,
+    forEachMatchingEntry
+} from './utils';
 
 /* exported for testing only */
 export const replaceReducer = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'replaceReducer (private method of BrickManager)'
+);
+
+export const prepareReducer = Symbol(
+    process.env.NODE_ENV === 'production' ? undefined : 'prepareReducer (private method of BrickManager)'
 );
 
 const addSelectors = Symbol(
@@ -37,22 +47,27 @@ export default class {
     }
 
     installBricks(bricks) {
-        let changed = false;
-        Object.entries(bricks)
-            .filter(([storePath]) => !this[hasReducer](storePath))
-            .forEach(([storePath, { reducer, selectors, saga, initialState }]) => {
-                changed = true;
-                const resolvedInitialState = initialState ? resolveStateWithSelectors(this.store, initialState) : null;
-                const reducerWithInitialState = resolvedInitialState
-                    ? (state = resolvedInitialState, action) => reducer(state, action)
-                    : reducer;
-                this[saveReducer](storePath, reducerWithInitialState);
+        const changed = forEachMatchingEntry(
+            bricks,
+            ([storePath]) => !this[hasReducer](storePath),
+            ([storePath, { reducer, selectors, saga, initialState }]) => {
+                const preparedReducer = this[prepareReducer](reducer, initialState);
+                this[saveReducer](storePath, preparedReducer);
                 this[addSelectors](storePath, selectors);
                 this[addSaga](saga);
-            });
+            }
+        );
         if (changed) {
             this[replaceReducer]();
         }
+    }
+
+    [prepareReducer](reducer, initialState) {
+        if (!initialState) {
+            return reducer;
+        }
+        const resolvedInitialState = resolveStateWithSelectors(this.store, initialState);
+        return (state = resolvedInitialState, action) => reducer(state, action);
     }
 
     [replaceReducer]() {
