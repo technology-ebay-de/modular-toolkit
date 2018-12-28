@@ -15,6 +15,9 @@ Object {
       "basel": "COOKIE",
     },
   },
+  "shizzle": Object {
+    "fizzle": "FIZZLE",
+  },
 }
 `;
 
@@ -24,6 +27,9 @@ Object {
     "fasel": Object {
       "basel": "BASEL",
     },
+  },
+  "shizzle": Object {
+    "fizzle": "FIZZLE",
   },
   "thud": "THUD",
 }
@@ -36,6 +42,9 @@ Object {
       "basel": "BASEL",
     },
   },
+  "shizzle": Object {
+    "fizzle": "FIZZLE",
+  },
 }
 `;
 
@@ -43,6 +52,9 @@ exports[`When I create a brick manager and I install a brick with a reducer with
 Object {
   "bricks": Object {
     "fasel": Object {},
+  },
+  "shizzle": Object {
+    "fizzle": "FIZZLE",
   },
   "thud": "THUD",
 }
@@ -56,6 +68,9 @@ Object {
     },
     "xyzzy": Object {},
   },
+  "shizzle": Object {
+    "fizzle": "FIZZLE",
+  },
 }
 `;
 
@@ -67,13 +82,43 @@ Object {
       "payload": "hey ho let's go!",
     },
   },
+  "shizzle": Object {
+    "fizzle": "FIZZLE",
+  },
 }
 `;
 
-exports[`When I create a brick manager and I install a brick with a reducer with a simple store path and I dispatch an action for the simple store path reducer the Redux state is correct 1`] = `
+exports[`When I create a brick manager and I install a brick with a reducer with a simple store path and a simple initial state and I dispatch an action for the simple store path reducer the Redux state is correct 1`] = `
 Object {
   "argh": Object {
     "argh": "ARGH",
+    "blubber": "subber",
+  },
+  "shizzle": Object {
+    "fizzle": "FIZZLE",
+  },
+}
+`;
+
+exports[`When I create a brick manager and I install a brick with a reducer with a simple store path and an initial state with a selector and I dispatch an action for the simple store path reducer the Redux state is correct 1`] = `
+Object {
+  "argh": Object {
+    "argh": "ARGH",
+    "fizzle": "FIZZLE",
+  },
+  "shizzle": Object {
+    "fizzle": "FIZZLE",
+  },
+}
+`;
+
+exports[`When I create a brick manager and I install a brick with a reducer with a simple store path without initial state and I dispatch an action for the simple store path reducer the Redux state is correct 1`] = `
+Object {
+  "argh": Object {
+    "argh": "ARGH",
+  },
+  "shizzle": Object {
+    "fizzle": "FIZZLE",
   },
 }
 `;

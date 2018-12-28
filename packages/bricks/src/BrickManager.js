@@ -7,12 +7,11 @@ import {
     forEachMatchingEntry
 } from './utils';
 
-/* exported for testing only */
-export const replaceReducer = Symbol(
+const replaceReducer = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'replace reducer (private method of BrickManager)'
 );
 
-export const prepareReducer = Symbol(
+const prepareReducer = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'prepare reducer (private method of BrickManager)'
 );
 
@@ -40,8 +39,7 @@ const originalReducer = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'original reducer (private property of BrickManager)'
 );
 
-/* exported for testing only */
-export const additionalReducers = Symbol(
+const additionalReducers = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'additional reducers (private property of BrickManager)'
 );
 
@@ -49,7 +47,15 @@ const sagaMiddleware = Symbol(
     process.env.NODE_ENV === 'production' ? undefined : 'saga middleware (private property of BrickManager)'
 );
 
-export default class {
+export default class BrickManager {
+    /**
+     * Creates a new Brick Manager instance.
+     *
+     * @param options Configuration object with properties:
+     *                * store – a Redux store
+     *                * reducer – the original reducer used by the Redux store
+     *                * sagaMiddleware – Redux Saga middleware used by the Redux store
+     */
     constructor({ store: storeInput, reducer: reducerInput = s => s, sagaMiddleware: sagaMiddlewareInput }) {
         this[store] = storeInput;
         this[originalReducer] = reducerInput;
@@ -57,10 +63,30 @@ export default class {
         this[sagaMiddleware] = sagaMiddlewareInput;
     }
 
-    installBrick(storePath, brick) {
-        this.installBricks({ [storePath]: brick });
+    /**
+     * Installs a new Brick.
+     *
+     * @param storePath The path in the global Redux store where the Brick should be installed
+     * @param brick A Brick object with properties:
+     *              * reducer The Brick's reducer
+     *              * selectors The Brick's selectors
+     *              * saga The Brick's saga
+     * @param initialState State object used to initialize the Brick's part of the Redux state tree (optional)
+     */
+    installBrick(storePath, brick, initialState) {
+        this.installBricks({ [storePath]: { ...brick, initialState } });
     }
 
+    /**
+     * Installs new Bricks.
+     *
+     * @param bricks An object where the keys are the store paths of each Brick to be installed, and the values
+     *               are objects with properties:
+     *               * reducer The Brick's reducer
+     *               * selectors The Brick's selectors
+     *               * saga The Brick's saga
+     *               * initialState State object used to initialize the Brick's part of the Redux state tree (optional)
+     */
     installBricks(bricks) {
         const changed = forEachMatchingEntry(
             bricks,
@@ -75,6 +101,10 @@ export default class {
             this[replaceReducer]();
         }
     }
+
+    /* ---------------
+     * Private methods
+     * --------------- */
 
     [prepareReducer](reducer, initialState) {
         if (!initialState) {
@@ -107,5 +137,23 @@ export default class {
 
     [hasReducer](storePath) {
         return this[loadReducer](storePath) !== null;
+    }
+
+    /* --------------------------------------------------
+     * Private methods and properties exposed for testing
+     * -------------------------------------------------- */
+
+    get additionalReducers() {
+        return process.env.NODE_ENV === 'test' ? this[additionalReducers] : undefined;
+    }
+
+    get replaceReducer() {
+        return process.env.NODE_ENV === 'test' ? this[replaceReducer] : undefined;
+    }
+
+    set replaceReducer(func) {
+        if (process.env.NODE_ENV === 'test') {
+            this[replaceReducer] = func;
+        }
     }
 }
