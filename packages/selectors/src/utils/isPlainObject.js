@@ -3,9 +3,6 @@
  * Copied from lodash
  */
 
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-empty */
-
 const objectProto = Object.prototype;
 const hasOwnProperty = objectProto.hasOwnProperty;
 const toString = objectProto.toString;
@@ -22,25 +19,28 @@ function baseGetTag(value) {
     const tag = value[symToStringTag];
     let unmasked = false;
     try {
+        // eslint-disable-next-line no-param-reassign
         value[symToStringTag] = undefined;
         unmasked = true;
-    } catch (e) {}
+    } catch (e) {
+        // intentionally empty
+    }
 
     const result = toString.call(value);
     if (unmasked) {
         if (isOwn) {
+            // eslint-disable-next-line no-param-reassign
             value[symToStringTag] = tag;
         } else {
+            // eslint-disable-next-line
             delete value[symToStringTag];
         }
     }
     return result;
 }
 
-/** Used to resolve the decompiled source of functions. */
 const funcToString = Function.prototype.toString;
 
-/** Used to infer the `Object` constructor. */
 const objectCtorString = funcToString.call(Object);
 
 function isObjectLike(value) {
