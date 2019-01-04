@@ -47,8 +47,12 @@ function isObjectLike(value) {
     return typeof value === 'object' && value !== null;
 }
 
+function hasObjectOrModuleBaseGetTag(value) {
+    return baseGetTag(value) === '[object Object]' || baseGetTag(value) === '[object Module]';
+}
+
 export default function isPlainObject(value) {
-    if (!isObjectLike(value) || baseGetTag(value) !== '[object Object]') {
+    if (!isObjectLike(value) || !hasObjectOrModuleBaseGetTag(value)) {
         return false;
     }
     const proto = Object.getPrototypeOf(value);
