@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/bricks",
-  "version": "1.2.0-beta.2",
+  "version": "1.2.0-beta.3",
   "description": "Tools for connecting high-level Redux components (“Bricks”)",
   "esnext": "index-esnext.js",
   "main": "index.js",
@@ -20,7 +20,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@modular-toolkit/selectors": "^3.0.3"
+    "@modular-toolkit/selectors": "^3.0.4-beta.0"
   },
   "peerDependencies": {
     "react": ">=16.3.0 <17.0.0",
