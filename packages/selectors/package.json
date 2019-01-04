@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/selectors",
-  "version": "3.0.4-beta.0",
+  "version": "3.0.4-beta.1",
   "description": "Utility functions for connecting selectors for a state object to a global Redux state",
   "esnext": "index-esnext.js",
   "main": "index.js",
