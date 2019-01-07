@@ -1,4 +1,4 @@
-import { forEachMatch } from '.';
+import forEachMatch from './forEachMatch';
 
 /**
  * Execute a function for each entry of an object, if the provided predicate function returns true
