@@ -7,13 +7,18 @@ const sagaMiddleware = jest.fn();
 const store = {};
 const reducer = jest.fn();
 const storePath = 'STORE-PATH';
-const brick = 'BRICK';
+const brick = {
+    reducer: 'REDUCER',
+    selectors: 'SELECTORS',
+    saga: 'SAGA'
+};
 const mockInstallBricks = jest.fn();
 
 jest.mock(
     './BrickManager',
     () =>
         class BrickManager {
+            // noinspection JSMethodCanBeStatic
             installBricks(...args) {
                 mockInstallBricks(...args);
             }

@@ -36,7 +36,7 @@ const initialState = createInitialState();
 
 export default () => {
     const sagaMiddleware = createSagaMiddleware();
-    const store = createStore(reducer, initialState, sagaMiddleware);
+    const store = createStore(reducer, initialState, applyMiddleware(sagaMiddleware));
     const brickManager = new BrickManager({ store, reducer, sagaMiddleware });
     brickManager.installBricks({
         'bricks.hackerNews': hackerNews,
@@ -117,9 +117,9 @@ ReactDOM.render(
 
 The `BrickProvider` accepts these props:
 
-*   `store` (required) – The redux store
-*   `sagaMiddleware` (required) – The [redux-saga](http://redux-saga.js.org) middleware
-*   `reducer` (optional) – The application's root reducer
+-   `store` (required) – The redux store
+-   `sagaMiddleware` (required) – The [redux-saga](http://redux-saga.js.org) middleware
+-   `reducer` (optional) – The application's root reducer
 
 ### [withBrick](src/withBrick.js)
 
@@ -134,7 +134,6 @@ Example:
 
 ```javascript
 import React from 'react';
-import { connect } from 'react-redux';
 import { withBrick } from '@modular-toolkit/bricks';
 import hackerNews, { HackerNews } from '@modular-toolkit/demo-module';
 
@@ -154,12 +153,13 @@ export default enhance(MyComponent);
 
 [![Edit Bricks Demo II](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vj1ywp5lz5?module=%2Fsrc%2Fpages%2Fhacker-news%2Fcomponents%2FHackerNewsPageContainer.js)
 
-The `withBrick` function accepts two arguments:
+The `withBrick` function accepts three arguments:
 
-*   `storePath` (required, string) – The path to the part of the global Redux state that the Brick is working with; path
+-   `storePath` (required, string) – The path to the part of the global Redux state that the Brick is working with; path
     segments are separated by dots; example: `bricks.hackerNews`
-*   `module` (required, object) – The brick module that contains store, reducer and saga of the brick; this is usually
+-   `module` (required, object) – The brick module that contains store, reducer and saga of the brick; this is usually
     the default export of a brick package
+-   `initialState` (optional, object) – An initial state that can be used for configuration (see below)
 
 ### [withBricks](src/withBricks.js)
 
@@ -203,7 +203,50 @@ export default enhance(MyComponent);
 
 The `withBricks` function accepts one argument:
 
-*   `bricks` (required, object) – an object where the keys are store paths and the values are brick modules
+-   `bricks` (required, object) – an object where the keys are store paths and the values are brick modules
+
+## Passing an Initial State
+
+In some cases, it is desirable to configure the initial state of a Brick, to pass general configuration
+that needs to be available when the Brick is installed.
+
+For example, you may want to configure the base URL of an API used by a Saga to fetch data.
+
+This can be done by passing an initial state object to the Brick Manager.
+
+### Using BrickManager.installBrick
+
+```javascript
+brickManager.installBrick('bricks.hackerNews', hackerNews, {
+    baseUrl: 'https://hackernews.com/api'
+});
+```
+
+### Using BrickManager.installBricks
+
+```javascript
+brickManager.installBricks({
+    'bricks.hackerNews': { ...hackerNews, initialState: { baseUrl: 'https://hackernews.com/api' } },
+    'bricks.gists': { ...gists, initialState: { baseUrl: 'https://gists.com/api' } }
+});
+```
+
+### Using withBrick
+
+```javascript
+const enhance = withBrick('bricks.hackerNews', hackerNews, {
+    baseUrl: 'https://hackernews.com/api'
+});
+```
+
+### Using withBricks
+
+```javascript
+const enhance = withBricks({
+    'bricks.hackerNews': { ...hackerNews, initialState: { baseUrl: 'https://hackernews.com/api' } },
+    'bricks.gists': { ...gists, initialState: { baseUrl: 'https://gists.com/api' } }
+});
+```
 
 ## Experimental API
 
@@ -246,9 +289,9 @@ call the `useBrick` hook and the Hacker News brick is installed in your applicat
 
 The `useBrick` function accepts two arguments:
 
-*   `storePath` (required, string) – The path to the part of the global Redux state that the Brick is working with; path
+-   `storePath` (required, string) – The path to the part of the global Redux state that the Brick is working with; path
     segments are separated by dots; example: `bricks.hackerNews`
-*   `module` (required, object) – The brick module that contains store, reducer and saga of the brick; this is usually
+-   `module` (required, object) – The brick module that contains store, reducer and saga of the brick; this is usually
     the default export of a brick package
 
 ### [useBricks](src/useBricks.js)
@@ -270,7 +313,7 @@ import { useBricks } from '@modular-toolkit/bricks';
 export default () => {
     useBricks({
         'bricks.hackerNews': hackerNews,
-        'bricks.gists': gists,
+        'bricks.gists': gists
     });
     return (
         <div>
@@ -285,29 +328,29 @@ export default () => {
 
 The `useBricks` function accepts one argument:
 
-*   `bricks` (required, object) – an object where the keys are store paths and the values are brick modules
+-   `bricks` (required, object) – an object where the keys are store paths and the values are brick modules
 
 ## Troubleshooting
 
 ### Console Warning: “Unexpected key XXX found in previous state received by the reducer”
 
 If you get this warning in your browser console, you're using _combineReducers_ from the Redux library.
-Use _combineReducers_ from _modular-tookkit_ instead ([see above](#combinereducers)).
+Use _combineReducers_ from _modular-toolkit_ instead ([see above](#combinereducers)).
 
 ## Change Log
 
-*   See [CHANGELOG.md](CHANGELOG.md)
+-   See [CHANGELOG.md](CHANGELOG.md)
 
 ## Contribution Guidelines
 
-*   See [CONTRIBUTING.md](../../CONTRIBUTING.md)
+-   See [CONTRIBUTING.md](../../CONTRIBUTING.md)
 
 ## Acknowledgements
 
-*   Includes code taken from [Redux](https://redux.js.org) (_combineReducers_)<br>
+-   Includes code taken from [Redux](https://redux.js.org) (_combineReducers_)<br>
     [MIT licensed](https://github.com/reduxjs/redux/blob/master/LICENSE.md)<br>
     Copyright © 2015–present Dan Abramov
-*   The _BrickManager_ module is inspired by [Reedux](https://github.com/Silviu-Marian/reedux)<br>
+-   The _BrickManager_ module is inspired by [Reedux](https://github.com/Silviu-Marian/reedux)<br>
     [MIT licensed](https://github.com/Silviu-Marian/reedux/blob/master/LICENSE)<br>
     Copyright © 2017 Silviu Marian
 

@@ -1,14 +1,15 @@
-import BrickManager, { replaceReducer } from './BrickManager';
-import { createStore } from 'redux';
 import { registerSelectorsForUseWithGlobalState } from '@modular-toolkit/selectors';
+import { createStore } from 'redux';
+import BrickManager from './BrickManager';
 
 const selectors = 'SELECTORS';
-const otherSelectors = 'OHTER_SELECTORS';
+const otherSelectors = 'OTHER_SELECTORS';
 const saga = 'SAGA';
 const otherSaga = 'OTHER_SAGA';
 
 jest.mock('@modular-toolkit/selectors', () => ({
-    registerSelectorsForUseWithGlobalState: jest.fn()
+    registerSelectorsForUseWithGlobalState: jest.fn(),
+    makeWorkWithGlobalState: s => s
 }));
 
 const reducer = (state = {}, { type }) => {
@@ -26,6 +27,12 @@ const reducer = (state = {}, { type }) => {
 const otherReducer = (s = {}) => s;
 
 let store;
+
+const globalState = {
+    shizzle: {
+        fizzle: 'FIZZLE'
+    }
+};
 
 const sagaMiddleware = {
     run: jest.fn()
@@ -60,10 +67,14 @@ function xyzzyReducer(state = {}, { type, payload }) {
     }
 }
 
+function selectFizzle(state) {
+    return state.shizzle.fizzle;
+}
+
 describe('When I create a brick manager', () => {
     let brickManager;
     beforeEach(() => {
-        store = createStore(reducer);
+        store = createStore(reducer, globalState);
         return (brickManager = new BrickManager({ store, reducer, sagaMiddleware }));
     });
     describe('and I install a Brick', () => {
@@ -94,10 +105,40 @@ describe('When I create a brick manager', () => {
             it('is run', () => expect(sagaMiddleware.run).toHaveBeenCalledWith(otherSaga)));
     });
     describe('and I install a brick with a reducer with a simple store path', () => {
-        beforeEach(() => brickManager.installBrick('argh', { reducer: arghReducer, saga, selectors }));
-        describe('and I dispatch an action for the simple store path reducer', () => {
-            beforeEach(() => store.dispatch({ type: 'ARGH' }));
-            describe('the Redux state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+        describe('without initial state', () => {
+            beforeEach(() => brickManager.installBrick('argh', { reducer: arghReducer, saga, selectors }));
+            describe('and I dispatch an action for the simple store path reducer', () => {
+                beforeEach(() => store.dispatch({ type: 'ARGH' }));
+                describe('the Redux state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+            });
+        });
+        describe('and a simple initial state', () => {
+            beforeEach(() =>
+                brickManager.installBrick(
+                    'argh',
+                    { reducer: arghReducer, saga, selectors },
+                    {
+                        blubber: 'subber'
+                    }
+                ));
+            describe('and I dispatch an action for the simple store path reducer', () => {
+                beforeEach(() => store.dispatch({ type: 'ARGH' }));
+                describe('the Redux state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+            });
+        });
+        describe('and an initial state with a selector', () => {
+            beforeEach(() =>
+                brickManager.installBrick(
+                    'argh',
+                    { reducer: arghReducer, saga, selectors },
+                    {
+                        fizzle: selectFizzle
+                    }
+                ));
+            describe('and I dispatch an action for the simple store path reducer', () => {
+                beforeEach(() => store.dispatch({ type: 'ARGH' }));
+                describe('the Redux state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+            });
         });
     });
     describe('and I install a brick with a reducer with a complex store path', () => {
@@ -160,7 +201,7 @@ describe('When I create a brick manager', () => {
     describe('and I try to install the same Brick twice', () => {
         let replaceReducerSpy;
         beforeEach(() => {
-            replaceReducerSpy = jest.spyOn(brickManager, replaceReducer);
+            replaceReducerSpy = jest.spyOn(brickManager, 'replaceReducer');
             brickManager.installBrick('bricks.gnarg', { reducer, saga, selectors });
             brickManager.installBrick('bricks.gnarg', { reducer, saga, selectors });
         });

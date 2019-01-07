@@ -6,3 +6,6 @@ export { default as mergeObjects } from './mergeObjects';
 export { default as mergeReducers } from './mergeReducers';
 export { default as combineNestedReducers } from './combineNestedReducers';
 export { default as createFakeActionAndReducer } from './createFakeActionAndReducer';
+export { default as resolveStateWithSelectors } from './resolveStateWithSelectors';
+export { default as forEachMatch } from './forEachMatch';
+export { default as forEachMatchingEntry } from './forEachMatchingEntry';
