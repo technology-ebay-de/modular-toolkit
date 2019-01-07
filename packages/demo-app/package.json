@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/demo-app",
-  "version": "6.2.0-beta.4",
+  "version": "6.2.0-beta.5",
   "description": "Demo app for the React Modular Toolkit",
   "main": "src/index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@modular-toolkit/bricks": "^1.2.0-beta.4",
+    "@modular-toolkit/bricks": "^1.2.0-beta.5",
     "@modular-toolkit/demo-module": "^6.0.4-beta.1",
     "@modular-toolkit/demo-ui": "^1.1.1",
     "@modular-toolkit/hocs": "^4.0.4-beta.1",
