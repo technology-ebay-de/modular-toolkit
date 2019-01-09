@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/bricks",
-  "version": "1.2.1-beta.0",
+  "version": "1.2.1",
   "description": "Tools for connecting high-level Redux components (“Bricks”)",
   "esnext": "index-esnext.js",
   "main": "index.js",
