@@ -2,10 +2,10 @@ import { createStore } from 'redux';
 import { mergeReducers, createFakeActionAndReducer } from '.';
 import combineReducers from '../combineReducers';
 
-const [foo, fooAction] = createFakeActionAndReducer('FOO');
-const [bar, barAction] = createFakeActionAndReducer('BAR');
-const [baz, bazAction] = createFakeActionAndReducer('BAZ');
-const [bazong, bazongAction] = createFakeActionAndReducer('BAZONG');
+const [foo, fooAction, fooSpy] = createFakeActionAndReducer('FOO');
+const [bar, barAction, barSpy] = createFakeActionAndReducer('BAR');
+const [baz, bazAction, bazSpy] = createFakeActionAndReducer('BAZ');
+const [bazong, bazongAction, bazongSpy] = createFakeActionAndReducer('BAZONG');
 
 describe('When my original reducer is a simple function', () => {
     let originalReducer;
@@ -113,21 +113,30 @@ describe('When my original reducer is a combined reducer', () => {
                         beforeEach(() => store.dispatch(fooAction));
                         describe('the resulting state', () =>
                             it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                        describe('the action', () =>
+                            it('is processed by the reducer only once', () => expect(fooSpy).toHaveBeenCalledTimes(1)));
                     });
                     describe('and I dispatch an action for the other reducer of the combined original reducer', () => {
                         beforeEach(() => store.dispatch(bazongAction));
                         describe('the resulting state', () =>
                             it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                        describe('the action', () =>
+                            it('is processed by the reducer only once', () =>
+                                expect(bazongSpy).toHaveBeenCalledTimes(1)));
                     });
                     describe('and I dispatch an action for the top additional reducer', () => {
                         beforeEach(() => store.dispatch(barAction));
                         describe('the result', () =>
                             it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                        describe('the action', () =>
+                            it('is processed by the reducer only once', () => expect(barSpy).toHaveBeenCalledTimes(1)));
                     });
                     describe('and I dispatch an action for the nested additional reducer', () => {
                         beforeEach(() => store.dispatch(bazAction));
                         describe('the result', () =>
                             it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                        describe('the action', () =>
+                            it('is processed by the reducer only once', () => expect(bazSpy).toHaveBeenCalledTimes(1)));
                     });
                 });
             });
