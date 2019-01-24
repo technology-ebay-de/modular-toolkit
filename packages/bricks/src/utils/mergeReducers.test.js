@@ -139,6 +139,7 @@ describe('When my original reducer is a combined reducer', () => {
                             it('is processed by the reducer only once', () => expect(bazSpy).toHaveBeenCalledTimes(1)));
                     });
                 });
+                afterEach(() => jest.clearAllMocks());
             });
         });
     });
