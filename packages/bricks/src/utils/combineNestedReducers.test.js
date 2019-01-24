@@ -1,10 +1,10 @@
 import { combineNestedReducers, createFakeActionAndReducer } from '.';
 import { createStore } from 'redux';
 
-const [foo, fooAction] = createFakeActionAndReducer('FOO');
-const [bar, barAction] = createFakeActionAndReducer('BAR');
-const [baz, bazAction] = createFakeActionAndReducer('BAZ');
-const [bazong, bazongAction] = createFakeActionAndReducer('BAZONG');
+const [foo, fooAction, fooSpy] = createFakeActionAndReducer('FOO');
+const [bar, barAction, barSpy] = createFakeActionAndReducer('BAR');
+const [baz, bazAction, bazSpy] = createFakeActionAndReducer('BAZ');
+const [bazong, bazongAction, bazongSpy] = createFakeActionAndReducer('BAZONG');
 
 describe('When I combine some nested reducers', () => {
     let reducer;
@@ -26,6 +26,15 @@ describe('When I combine some nested reducers', () => {
                 store.dispatch(bazongAction);
             });
             describe('the resulting state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+            describe('the “foo” reducer', () =>
+                it('handles the “foo” action only once', () => expect(fooSpy).toHaveBeenCalledTimes(1)));
+            describe('the “bar” reducer', () =>
+                it('handles the “bar” action only once', () => expect(barSpy).toHaveBeenCalledTimes(1)));
+            describe('the “baz” reducer', () =>
+                it('handles the “baz” action only once', () => expect(bazSpy).toHaveBeenCalledTimes(1)));
+            describe('the “bazong” reducer', () =>
+                it('handles the “bazong” action only once', () => expect(bazongSpy).toHaveBeenCalledTimes(1)));
         });
+        afterEach(() => jest.clearAllMocks());
     });
 });
