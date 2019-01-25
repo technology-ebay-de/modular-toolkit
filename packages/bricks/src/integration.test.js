@@ -50,7 +50,7 @@ test('actions dispatched to original and brick reducer are processed correctly',
     });
     const sagaMiddleware = createSagaMiddleware();
     const store = createStore(originalReducer, applyMiddleware(sagaMiddleware));
-    const wrapper = mount(
+    mount(
         <Provider store={store}>
             <BrickProvider store={store} sagaMiddleware={sagaMiddleware} reducer={originalReducer}>
                 <App>
@@ -62,6 +62,8 @@ test('actions dispatched to original and brick reducer are processed correctly',
             </BrickProvider>
         </Provider>
     );
+    expect(boardInfoSpy).toHaveBeenCalledTimes(0);
+    expect(refreshableSpy).toHaveBeenCalledTimes(1);
     expect(store.getState()).toEqual({
         modules: {
             refreshable: { value: 'refreshable' }
