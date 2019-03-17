@@ -51,7 +51,8 @@ const testCases = [
         false,
         { bla: { blub: 'BLUB' } }
     ]
-]
+];
+
 test.each(testCases)(
     'When my object is %j and my path is %s, my value is %j and the overwrite flag is %p, ' +
         'the result of calling addValueByDottedPath is %j',
@@ -73,7 +74,8 @@ const throwingTestCases = [
         'farg',
         true
     ]
-]
+];
+
 test.each(throwingTestCases)(
     'When my object is %j and my path is %s, my value is %j and the overwrite flag is %p, ' +
         'calling addValueByDottedPath throws an error',

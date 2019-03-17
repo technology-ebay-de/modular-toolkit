@@ -13,6 +13,7 @@ jest.mock(
     './BrickManager',
     () =>
         class BrickManager {
+            // noinspection JSMethodCanBeStatic
             installBricks(...args) {
                 mockInstallBricks(...args);
             }
@@ -33,6 +34,6 @@ describe('When I mount a component that is wrapped with Bricks', () => {
         );
     });
     describe("the Brick Manager's “installBricks” method", () =>
-        it('is called with the provided brick map', () => expect(mockInstallBricks).toBeCalledWith(bricks)));
+        void it('is called with the provided brick map', () => expect(mockInstallBricks).toBeCalledWith(bricks)));
     afterEach(() => jest.clearAllMocks());
 });

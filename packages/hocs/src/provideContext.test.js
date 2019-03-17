@@ -30,7 +30,7 @@ describe('When I enhance a component with the "provideContext" enhancer', () => 
         }));
     });
     describe('the props of the component', () =>
-        it('contain a "testContext" object with the context values and a subscribe function', () =>
+        void it('contain a "testContext" object with the context values and a subscribe function', () =>
             expect(component.prop('testContext')).toMatchSnapshot()));
     describe('and subscribe to context changes', () => {
         let unsubscribe, subscriptionCallback;
@@ -40,13 +40,13 @@ describe('When I enhance a component with the "provideContext" enhancer', () => 
             setProps({ unrelated: 'cie' });
         });
         describe('the subscription callback', () =>
-            it('is not called', () => expect(subscriptionCallback).not.toHaveBeenCalled()));
+            void it('is not called', () => expect(subscriptionCallback).not.toHaveBeenCalled()));
         describe('and change a prop', () => {
             beforeEach(() => {
                 setProps({ existingProp: 'changedExistingPropValue' });
             });
             describe('the subscription callback', () =>
-                it('is called', () => expect(subscriptionCallback).toHaveBeenCalled()));
+                void it('is called', () => expect(subscriptionCallback).toHaveBeenCalled()));
         });
         describe('and unsubscribe', () => {
             beforeAll(() => {
@@ -58,7 +58,7 @@ describe('When I enhance a component with the "provideContext" enhancer', () => 
                     setProps({ existingProp: 'changedAgain' });
                 });
                 describe('the subscription callback', () =>
-                    it('is not called', () => expect(subscriptionCallback).not.toHaveBeenCalled()));
+                    void it('is not called', () => expect(subscriptionCallback).not.toHaveBeenCalled()));
             });
         });
     });

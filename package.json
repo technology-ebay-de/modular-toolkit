@@ -18,7 +18,9 @@
     "access": "public"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/setupJest.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupJest.js"
+    ],
     "transformIgnorePatterns": [
       "<rootDir>.*(node_modules)(?!.*@mt-.*).*$"
     ],
@@ -57,12 +59,12 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
     "@mt-testutils/mount-hoc": "^1.0.8",
-    "babel-eslint": "^8.2.1",
-    "babel-jest": "^23.6.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
+    "babel-eslint": "^10.0.1",
     "cheerio": "^1.0.0-rc.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
@@ -74,13 +76,13 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.6.1",
     "husky": "^0.14.3",
-    "jest": "^23.6.0",
+    "jest": "^24.5.0",
     "lerna": "^3.4.3",
     "lint-staged": "^6.1.0",
     "prettier": "^1.11.1",
     "prop-types": "^15.6.0",
-    "react": "^16.7.0-alpha.0",
-    "react-dom": "^16.7.0-alpha.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
     "react-redux": "^5.0.6",
     "react-test-renderer": "^16.2.0",
     "recompose": "^0.26.0",

@@ -5,4 +5,4 @@ jest.mock('react', () => ({
 }));
 
 describe('The value exported by the BrickManagerContext module', () =>
-    it('is the context returned by React.createContext', () => expect(BrickManagerContext).toEqual('CONTEXT')));
+    void it('is the context returned by React.createContext', () => expect(BrickManagerContext).toEqual('CONTEXT')));

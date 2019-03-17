@@ -37,7 +37,7 @@ describe('When I call the function with a callback', () => {
             });
         });
         describe('the on-location-change callback', () =>
-            it('is called', () => expect(onLocationChangedCallback).toBeCalled()));
+            void it('is called', () => expect(onLocationChangedCallback).toBeCalled()));
     });
     describe('and simulate a location change by changing the search', () => {
         let onLocationChangedCallback;
@@ -52,7 +52,7 @@ describe('When I call the function with a callback', () => {
             });
         });
         describe('the on-location-change callback', () =>
-            it('is called', () => expect(onLocationChangedCallback).toBeCalled()));
+            void it('is called', () => expect(onLocationChangedCallback).toBeCalled()));
     });
     describe('and simulate a location change without changing pathname or search', () => {
         let onLocationChangedCallback;
@@ -67,7 +67,7 @@ describe('When I call the function with a callback', () => {
             });
         });
         describe('the on-location-change callback', () =>
-            it('is not called', () => expect(onLocationChangedCallback).not.toBeCalled()));
+            void it('is not called', () => expect(onLocationChangedCallback).not.toBeCalled()));
     });
 });
 
@@ -84,10 +84,11 @@ describe('When I call the function with a callback and second argument â€œtrueâ€
         });
     });
     describe('the on-location-change callback', () =>
-        it('is called', () => expect(onLocationChangedCallback).toBeCalled()));
+        void it('is called', () => expect(onLocationChangedCallback).toBeCalled()));
     describe('and the component mounts a second time', () => {
         beforeEach(() => mockComponentDidMount({}));
         describe('the on-location-change callback', () =>
-            it('is not called a second time', () => expect(onLocationChangedCallback.mock.calls.length).toEqual(1)));
+            void it('is not called a second time', () =>
+                expect(onLocationChangedCallback.mock.calls.length).toEqual(1)));
     });
 });

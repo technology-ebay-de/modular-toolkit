@@ -80,10 +80,11 @@ describe('When I create a brick manager', () => {
     describe('and I install a Brick', () => {
         beforeEach(() => brickManager.installBrick('bricks.fasel', { reducer, saga, selectors }));
         describe('the selectors', () =>
-            it('are registered for use with global state', () =>
+            void it('are registered for use with global state', () =>
                 expect(registerSelectorsForUseWithGlobalState).toHaveBeenCalledWith('bricks.fasel', selectors)));
-        describe('the saga', () => it('is run', () => expect(sagaMiddleware.run).toHaveBeenCalledWith(saga)));
-        describe('the reducer', () => it('is stored', () => expect(brickManager.additionalReducers).toMatchSnapshot()));
+        describe('the saga', () => void it('is run', () => expect(sagaMiddleware.run).toHaveBeenCalledWith(saga)));
+        describe('the reducer', () =>
+            void it('is stored', () => expect(brickManager.additionalReducers).toMatchSnapshot()));
     });
     describe('and I install two Bricks', () => {
         beforeEach(() =>
@@ -92,24 +93,25 @@ describe('When I create a brick manager', () => {
                 'bricks.xyzzy': { reducer: otherReducer, saga: otherSaga, selectors: otherSelectors }
             }));
         describe('the selectors of the first brick', () =>
-            it('are registered for use with global state', () =>
+            void it('are registered for use with global state', () =>
                 expect(registerSelectorsForUseWithGlobalState).toHaveBeenCalledWith('bricks.fasel', selectors)));
         describe('the reducers of both bricks', () =>
-            it('are stored', () => expect(brickManager.additionalReducers).toMatchSnapshot()));
+            void it('are stored', () => expect(brickManager.additionalReducers).toMatchSnapshot()));
         describe('the saga of the first brick', () =>
-            it('is run', () => expect(sagaMiddleware.run).toHaveBeenCalledWith(saga)));
+            void it('is run', () => expect(sagaMiddleware.run).toHaveBeenCalledWith(saga)));
         describe('the selectors of the second brick', () =>
-            it('are registered for use with global state', () =>
+            void it('are registered for use with global state', () =>
                 expect(registerSelectorsForUseWithGlobalState).toHaveBeenCalledWith('bricks.xyzzy', otherSelectors)));
         describe('the saga of the second brick', () =>
-            it('is run', () => expect(sagaMiddleware.run).toHaveBeenCalledWith(otherSaga)));
+            void it('is run', () => expect(sagaMiddleware.run).toHaveBeenCalledWith(otherSaga)));
     });
     describe('and I install a brick with a reducer with a simple store path', () => {
         describe('without initial state', () => {
             beforeEach(() => brickManager.installBrick('argh', { reducer: arghReducer, saga, selectors }));
             describe('and I dispatch an action for the simple store path reducer', () => {
                 beforeEach(() => store.dispatch({ type: 'ARGH' }));
-                describe('the Redux state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                describe('the Redux state', () =>
+                    void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
             });
         });
         describe('and a simple initial state', () => {
@@ -123,7 +125,8 @@ describe('When I create a brick manager', () => {
                 ));
             describe('and I dispatch an action for the simple store path reducer', () => {
                 beforeEach(() => store.dispatch({ type: 'ARGH' }));
-                describe('the Redux state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                describe('the Redux state', () =>
+                    void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
             });
         });
         describe('and an initial state with a selector', () => {
@@ -137,7 +140,8 @@ describe('When I create a brick manager', () => {
                 ));
             describe('and I dispatch an action for the simple store path reducer', () => {
                 beforeEach(() => store.dispatch({ type: 'ARGH' }));
-                describe('the Redux state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                describe('the Redux state', () =>
+                    void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
             });
         });
     });
@@ -206,11 +210,12 @@ describe('When I create a brick manager', () => {
             brickManager.installBrick('bricks.gnarg', { reducer, saga, selectors });
         });
         describe('the selectors', () =>
-            it('are registered for use with global state only once', () =>
+            void it('are registered for use with global state only once', () =>
                 expect(registerSelectorsForUseWithGlobalState).toHaveBeenCalledTimes(1)));
-        describe('the saga', () => it('is run only once', () => expect(sagaMiddleware.run).toHaveBeenCalledTimes(1)));
+        describe('the saga', () =>
+            void it('is run only once', () => expect(sagaMiddleware.run).toHaveBeenCalledTimes(1)));
         describe('the reducer', () =>
-            it('is stored only once', () => expect(replaceReducerSpy).toHaveBeenCalledTimes(1)));
+            void it('is stored only once', () => expect(replaceReducerSpy).toHaveBeenCalledTimes(1)));
     });
     afterEach(() => jest.clearAllMocks());
 });

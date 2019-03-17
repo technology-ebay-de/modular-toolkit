@@ -26,13 +26,13 @@ describe('When I mount a brick provider component', () => {
             </BrickProvider>
         ));
     describe('a Brick Manager', () =>
-        it('is instantiated with the provided saga middleware, store and reducer', () =>
+        void it('is instantiated with the provided saga middleware, store and reducer', () =>
             expect(mockBrickManagerConstructor).toBeCalledWith({
                 store,
                 reducer,
                 sagaMiddleware
             })));
     describe('the consumer wrapped by the brick provider component', () =>
-        it('has access to the brick manager', () => expect(consumer.mock.calls[0]).toMatchSnapshot()));
+        void it('has access to the brick manager', () => expect(consumer.mock.calls[0]).toMatchSnapshot()));
     afterEach(() => jest.clearAllMocks());
 });

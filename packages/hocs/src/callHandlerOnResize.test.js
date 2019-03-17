@@ -22,11 +22,14 @@ describe('When I call the "callHandlerOnResize" function', () => {
         component.prop('onResizeHandler')();
     });
     describe('the window', () =>
-        it('has a added the resize event listener', () =>
+        void it('has a added the resize event listener', () =>
             expect(window.addEventListener).toBeCalledWith('resize', component.prop('onResizeHandler'))));
-    describe('resize handler', () => {
-        it('is called', () => expect(myResizeHandler).toBeCalledWith({ width: 200, height: 100 }));
-    });
+    describe('resize handler', () =>
+        void it('is called', () =>
+            expect(myResizeHandler).toBeCalledWith({
+                width: 200,
+                height: 100
+            })));
     describe('and resize the window', () => {
         beforeAll(() => {
             myResizeHandler.mockClear();
@@ -35,7 +38,7 @@ describe('When I call the "callHandlerOnResize" function', () => {
             component.prop('onResizeHandler')();
         });
         describe('the component', () =>
-            it('updates the `containerWidth` state to match container width', () =>
+            void it('updates the `containerWidth` state to match container width', () =>
                 expect(myResizeHandler).toBeCalledWith({ width: 600, height: 400 })));
     });
     describe('and unmount the component', () => {
@@ -44,7 +47,7 @@ describe('When I call the "callHandlerOnResize" function', () => {
             unmount();
         });
         describe('the window', () =>
-            it('has a removed the resize event listener', () =>
+            void it('has a removed the resize event listener', () =>
                 expect(window.removeEventListener).toBeCalledWith('resize', component.prop('onResizeHandler'))));
     });
 });

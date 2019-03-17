@@ -15,9 +15,9 @@ jest.mock('react', () => ({
     }
 }));
 
-describe('When I call the “useBricks” React hook function', () => {
+describe.skip('When I call the “useBricks” React hook function', () => {
     beforeEach(() => useBricks(bricks));
     describe('the Brick manager from context', () =>
-        it('is called with the provided bricks map', () =>
+        void it('is called with the provided bricks map', () =>
             expect(mockBrickManager.installBricks).toBeCalledWith(bricks)));
 });

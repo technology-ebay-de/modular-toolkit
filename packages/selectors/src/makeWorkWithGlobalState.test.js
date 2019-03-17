@@ -7,8 +7,8 @@ describe('When I call the function without registering the stub first', () => {
         const mockSelector = state => state.bar;
         selector = withGlobalState(mockSelector);
     });
-    describe('the returned selector', () => {
-        it('will throw because it was not registered to work with global state', () => {
+    describe('the returned selector', () =>
+        void it('will throw because it was not registered to work with global state', () => {
             let error;
             try {
                 selector();
@@ -16,8 +16,7 @@ describe('When I call the function without registering the stub first', () => {
                 error = e;
             }
             expect(error.message).toMatch(/^This selector was not registered for use with global state/);
-        });
-    });
+        }));
 });
 describe('When I call the function with registering the stub first', () => {
     let selector;
@@ -27,13 +26,12 @@ describe('When I call the function with registering the stub first', () => {
         selector = withGlobalState(mockSelector);
     });
     describe('the returned selector', () =>
-        it('works with global state', () => expect(selector({ foo: { bar: 'zab' } })).toEqual('zab')));
-    describe('another time', () => {
-        it('it will return a cached selector', () => {
+        void it('works with global state', () => expect(selector({ foo: { bar: 'zab' } })).toEqual('zab')));
+    describe('another time', () =>
+        void it('it will return a cached selector', () => {
             const selector2 = withGlobalState(mockSelector);
             expect(selector2).toEqual(selector);
-        });
-    });
+        }));
 });
 describe('When I call the function with a selector that requires the global state', () => {
     let selectorIn, selectorOut;
@@ -42,5 +40,5 @@ describe('When I call the function with a selector that requires the global stat
         selectorIn.requiresGlobalState = true;
         selectorOut = withGlobalState(selectorIn);
     });
-    describe('the returned selector', () => it('remains the same', () => expect(selectorOut).toEqual(selectorIn)));
+    describe('the returned selector', () => void it('remains the same', () => expect(selectorOut).toEqual(selectorIn)));
 });

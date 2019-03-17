@@ -12,6 +12,6 @@ describe('When I call the "withWindowSize" function', () => {
         component.prop('onResizeHandler')();
     });
     describe('the component', () =>
-        it('has the expected "windowSize" prop', () =>
+        void it('has the expected "windowSize" prop', () =>
             expect(component.prop('windowSize')).toEqual({ width: 200, height: 100 })));
 });

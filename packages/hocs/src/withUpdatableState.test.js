@@ -9,14 +9,15 @@ describe('When I enhance a component with the "withUpdatableState" enhancer', ()
         ));
     });
     describe('the added state', () =>
-        it('has the default value', () => expect(component.prop('foo')).toEqual({ prop1: 'value1', prop2: 'value2' })));
+        void it('has the default value', () =>
+            expect(component.prop('foo')).toEqual({ prop1: 'value1', prop2: 'value2' })));
     describe('and set the state using the setter method', () => {
         beforeAll(() => {
             component.prop('setFoo')({ prop3: 'value3' });
             component = update();
         });
         describe('the state', () =>
-            it('gets replaced', () => expect(component.prop('foo')).toEqual({ prop3: 'value3' })));
+            void it('gets replaced', () => expect(component.prop('foo')).toEqual({ prop3: 'value3' })));
     });
     describe('and update the state using the updater method', () => {
         beforeAll(() => {
@@ -24,6 +25,7 @@ describe('When I enhance a component with the "withUpdatableState" enhancer', ()
             component = update();
         });
         describe('the state', () =>
-            it('gets replaced', () => expect(component.prop('foo')).toEqual({ prop3: 'value3', prop4: 'value4' })));
+            void it('gets replaced', () =>
+                expect(component.prop('foo')).toEqual({ prop3: 'value3', prop4: 'value4' })));
     });
 });

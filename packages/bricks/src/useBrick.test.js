@@ -19,6 +19,6 @@ jest.mock('react', () => ({
 describe('When I call the “useBrick” React hook function', () => {
     beforeEach(() => useBrick(storePath, brick));
     describe('the Brick manager from context', () =>
-        it('is called with the provided store path and brick module', () =>
+        void it('is called with the provided store path and brick module', () =>
             expect(mockBrickManager.installBrick).toBeCalledWith(storePath, brick)));
 });

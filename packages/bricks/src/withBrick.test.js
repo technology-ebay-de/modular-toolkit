@@ -39,7 +39,7 @@ describe('When I mount a component that is wrapped with a Brick', () => {
         );
     });
     describe("the Brick Manager's “installBrick” method", () =>
-        it('is called with the provided store path and brick module', () =>
+        void it('is called with the provided store path and brick module', () =>
             expect(mockInstallBricks).toBeCalledWith({ [storePath]: brick })));
     afterEach(() => jest.clearAllMocks());
 });

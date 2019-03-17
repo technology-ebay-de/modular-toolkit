@@ -31,10 +31,9 @@ describe('When I mount a component that is wrapped with a BrickInstaller', () =>
             />
         )));
     describe("the provided brick manager's “installBricks” method", () =>
-        it('is called with the provided brick map', () => expect(brickManager.installBricks).toBeCalledWith(bricks)));
-    describe('the provided wrapped component', () => {
-        it('is rendered with the provided wrapped component props', () => {
-            expect(component.html()).toMatchSnapshot();
-        });
-    });
+        void it('is called with the provided brick map', () =>
+            expect(brickManager.installBricks).toBeCalledWith(bricks)));
+    describe('the provided wrapped component', () =>
+        void it('is rendered with the provided wrapped component props', () =>
+            expect(component.html()).toMatchSnapshot()));
 });

@@ -29,19 +29,11 @@ describe('When I combine some reducers', () => {
     describe('and I call the combined reducer with an action for the first reducer', () => {
         let result;
         beforeEach(() => (result = combinedReducer(state, { type: 'BAZ' })));
-        describe('the result', () => {
-            it('is correct', () => {
-                expect(result).toMatchSnapshot();
-            });
-        });
+        describe('the result', () => void it('is correct', () => expect(result).toMatchSnapshot()));
     });
     describe('and I call the combined reducer with an action for the second reducer', () => {
         let result;
         beforeEach(() => (result = combinedReducer(state, { type: 'ARGH' })));
-        describe('the result', () => {
-            it('is correct', () => {
-                expect(result).toMatchSnapshot();
-            });
-        });
+        describe('the result', () => void it('is correct', () => expect(result).toMatchSnapshot()));
     });
 });

@@ -1,7 +1,7 @@
 {
     "command": {
         "publish": {
-            "ignoreChanges": ["ignored-file", "*.md"]
+            "ignoreChanges": ["*.md", "*.test.js"]
         }
     },
     "packages": ["packages/*"],

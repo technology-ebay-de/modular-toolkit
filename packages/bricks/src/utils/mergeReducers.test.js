@@ -13,7 +13,7 @@ describe('When my original reducer is a simple function', () => {
     describe('and I create a store', () => {
         let store;
         beforeEach(() => (store = createStore(originalReducer)));
-        describe('the initial state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+        describe('the initial state', () => void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
         describe('and my additional reducers map contains just one reducer', () => {
             let additionalReducers;
             beforeEach(() => (additionalReducers = { bar }));
@@ -22,16 +22,17 @@ describe('When my original reducer is a simple function', () => {
                 beforeEach(() => (mergedReducer = mergeReducers(originalReducer, additionalReducers)));
                 describe("and I replace the store's reducer with the merged reducer", () => {
                     beforeEach(() => store.replaceReducer(mergedReducer));
-                    describe('the new state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                    describe('the new state', () =>
+                        void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     describe('and I dispatch an action for the original reducer', () => {
                         beforeEach(() => store.dispatch(fooAction));
                         describe('the resulting state', () =>
-                            it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                            void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     });
                     describe('and I dispatch an action for the additional reducer', () => {
                         beforeEach(() => store.dispatch(barAction));
                         describe('the result', () =>
-                            it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                            void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     });
                 });
             });
@@ -44,21 +45,22 @@ describe('When my original reducer is a simple function', () => {
                 beforeEach(() => (mergedReducer = mergeReducers(originalReducer, additionalReducers)));
                 describe("and I replace the store's reducer with the merged reducer", () => {
                     beforeEach(() => store.replaceReducer(mergedReducer));
-                    describe('the new state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                    describe('the new state', () =>
+                        void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     describe('and I dispatch an action for the original reducer', () => {
                         beforeEach(() => store.dispatch(fooAction));
                         describe('the resulting state', () =>
-                            it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                            void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     });
                     describe('and I dispatch an action for the first additional reducer', () => {
                         beforeEach(() => store.dispatch(barAction));
                         describe('the result', () =>
-                            it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                            void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     });
                     describe('and I dispatch an action for the second additional reducer', () => {
                         beforeEach(() => store.dispatch(bazAction));
                         describe('the result', () =>
-                            it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                            void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     });
                 });
             });
@@ -71,21 +73,22 @@ describe('When my original reducer is a simple function', () => {
                 beforeEach(() => (mergedReducer = mergeReducers(originalReducer, additionalReducers)));
                 describe("and I replace the store's reducer with the merged reducer", () => {
                     beforeEach(() => store.replaceReducer(mergedReducer));
-                    describe('the new state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                    describe('the new state', () =>
+                        void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     describe('and I dispatch an action for the original reducer', () => {
                         beforeEach(() => store.dispatch(fooAction));
                         describe('the resulting state', () =>
-                            it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                            void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     });
                     describe('and I dispatch an action for the top additional reducer', () => {
                         beforeEach(() => store.dispatch(barAction));
                         describe('the result', () =>
-                            it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                            void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     });
                     describe('and I dispatch an action for the nested additional reducer', () => {
                         beforeEach(() => store.dispatch(bazAction));
                         describe('the result', () =>
-                            it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                            void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     });
                 });
             });
@@ -99,7 +102,7 @@ describe('When my original reducer is a combined reducer', () => {
     describe('and I create a store', () => {
         let store;
         beforeEach(() => (store = createStore(originalReducer)));
-        describe('the initial state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+        describe('the initial state', () => void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
         describe('and my additional reducers map contains two nested reducers', () => {
             let additionalReducers;
             beforeEach(() => (additionalReducers = { bar, corge: { baz } }));
@@ -108,26 +111,27 @@ describe('When my original reducer is a combined reducer', () => {
                 beforeEach(() => (mergedReducer = mergeReducers(originalReducer, additionalReducers)));
                 describe("and I replace the store's reducer with the merged reducer", () => {
                     beforeEach(() => store.replaceReducer(mergedReducer));
-                    describe('the new state', () => it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                    describe('the new state', () =>
+                        void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     describe('and I dispatch an action for the first reducer of the combined original reducer', () => {
                         beforeEach(() => store.dispatch(fooAction));
                         describe('the resulting state', () =>
-                            it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                            void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     });
                     describe('and I dispatch an action for the other reducer of the combined original reducer', () => {
                         beforeEach(() => store.dispatch(bazongAction));
                         describe('the resulting state', () =>
-                            it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                            void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     });
                     describe('and I dispatch an action for the top additional reducer', () => {
                         beforeEach(() => store.dispatch(barAction));
                         describe('the result', () =>
-                            it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                            void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     });
                     describe('and I dispatch an action for the nested additional reducer', () => {
                         beforeEach(() => store.dispatch(bazAction));
                         describe('the result', () =>
-                            it('is correct', () => expect(store.getState()).toMatchSnapshot()));
+                            void it('is correct', () => expect(store.getState()).toMatchSnapshot()));
                     });
                 });
             });
