@@ -87,7 +87,7 @@
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.1",
-    "stylelint": "^8.4.0",
+    "stylelint": "^9.10.1",
     "stylelint-config-motor-talk": "^1.0.1"
   }
 }
