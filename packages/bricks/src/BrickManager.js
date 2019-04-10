@@ -84,7 +84,7 @@ export default class BrickManager {
      *               are objects with properties:
      *               * reducer The Brick's reducer
      *               * selectors The Brick's selectors
-     *               * saga The Brick's saga
+     *               * saga The Brick's saga (optional)
      *               * initialState State object used to initialize the Brick's part of the Redux state tree (optional)
      */
     installBricks(bricks) {
@@ -128,7 +128,9 @@ export default class BrickManager {
     }
 
     [addSaga](saga) {
-        this[sagaMiddleware].run(saga);
+        if (this[sagaMiddleware]) {
+            this[sagaMiddleware].run(saga);
+        }
     }
 
     [loadReducer](storePath) {

@@ -19,13 +19,11 @@
     "Daniel Schäfer <danschaefer@team.mobile.de>"
   ],
   "license": "MIT",
-  "dependencies": {
-    "@modular-toolkit/selectors": "^3.0.4"
-  },
   "peerDependencies": {
     "react": ">=16.3.0 <17.0.0",
     "redux-saga": ">=0.15.0 <1.0.0",
-    "reselect": ">=3.0.0 <5.0.0"
+    "reselect": ">=3.0.0 <5.0.0",
+    "@modular-toolkit/selectors": ">=3.0.0 <4.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

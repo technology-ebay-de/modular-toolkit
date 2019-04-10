@@ -22,7 +22,7 @@ class BrickProvider extends Component {
 BrickProvider.propTypes = {
     store: PropTypes.object.isRequired,
     reducer: PropTypes.func,
-    sagaMiddleware: PropTypes.func.isRequired,
+    sagaMiddleware: PropTypes.func,
     children: PropTypes.node
 };
 
