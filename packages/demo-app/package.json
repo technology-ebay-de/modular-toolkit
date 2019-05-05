@@ -1,6 +1,6 @@
 {
   "name": "@modular-toolkit/demo-app",
-  "version": "7.0.0-beta.1",
+  "version": "7.0.0-beta.2",
   "description": "Demo app for the React Modular Toolkit",
   "main": "src/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "@modular-toolkit/demo-ui": "^1.1.1",
     "@modular-toolkit/hocs": "^5.0.0-beta.0",
     "@modular-toolkit/other-demo-module": "^2.0.0-beta.0",
-    "@modular-toolkit/selectors": "^4.0.0-beta.0",
+    "@modular-toolkit/selectors": "^4.0.0-beta.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.0.7",
